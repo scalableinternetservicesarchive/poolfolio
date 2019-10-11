@@ -23,3 +23,6 @@ Things you may want to cover:
 
 * ...
 # poolfolio
+
+### Team Members:
+    Pierson Marks, pmarks98, (insert photo here)
