@@ -22,7 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# poolfolio
-
-### Team Members:
-    Pierson Marks, pmarks98, (insert photo here)
