@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+# poolfolio
+
+### Team Members:
+    Pierson Marks, pmarks98, [Pierson Marks Photo](profileimg/piersonmarks.png)
+    Hanyao Liu, liuhanyao98, ![Hanyao Liu Photo](profileimg/HanyaoLiu.jpeg)
+    Jack Zhang, dvorjackz, [Jack Zhang Photo](profileimg/jackzhang.jpg)
