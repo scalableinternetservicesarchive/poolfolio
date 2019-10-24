@@ -1,5 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# commented by Hanyao Liu
-# empty for now
-# may add fixtures later
+one:
+  email: example@user.com
+  firstname: Example
+  lastname: User
