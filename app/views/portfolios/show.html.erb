@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Portfolio name:</strong>
+  <%= @portfolio.portfolio_name %>
+</p>
+
+<p>
+  <strong>Portfolio value:</strong>
+  <%= @portfolio.portfolio_value %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

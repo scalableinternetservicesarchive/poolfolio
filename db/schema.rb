@@ -12,12 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2019_10_24_220334) do
 
+  create_table "portfolios", force: :cascade do |t|
+    t.string "portfolio_name"
+    t.float "portfolio_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "firstname"
     t.string "lastname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "portfolio_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
