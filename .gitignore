@@ -217,3 +217,5 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# Emacs back up copies
+*~
