@@ -1,74 +1,8 @@
-<!--<div class="center jumbotron">-->
-<!--<h1>Poolfolio - <u>Collaborative Investing</u></h1>-->
-
-<%#= link_to "Sign Up Here!", '#', class: "btn btn-lg btn-primary" %>
-
-
-<!--</div>-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Poolfolio</title>
-  <%#= stylesheet_link_tag "application", :media => "all" %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-<body id="my-body">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#" style="font-size: xx-large; padding: 5px; margin: 0">Poolfolio</a>
-</nav>
-<div class="login-wrap">
-  <div class="login-html">
-    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-    <div class="login-form">
-      <p style="color: #dfdfdf;">Create teams to pool together funds and vote on investment suggestions in an attempt to collaboratively grow your portfolio. </p>
-      <div class="sign-in-htm">
-        <div class="group">
-          <label for="user" class="label">email</label>
-          <input id="user" type="text" class="input">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Password</label>
-          <input id="pass" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <input id="check" type="checkbox" class="check" checked>
-          <label for="check"><span class="icon"></span> Keep me Signed in</label>
-        </div>
-        <div class="group">
-          <!--                    <input type="submit" class="button" value="Sign In">-->
-          <button type="button" class="btn button btn-primary">Sign In</button>
-        </div>
-        <div class="hr"></div>
-        <div class="foot-lnk">
-          <a href="#forgot">Forgot Password?</a>
-        </div>
-      </div>
-      <div class="sign-up-htm">
-        <div class="group">
-          <label for="user" class="label">email Address</label>
-          <input id="user" type="text" class="input">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Password</label>
-          <input id="pass" type="password" class="input" data-type="password">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">First Name</label>
-          <input id="pass" type="text" class="input">
-        </div>
-        <div class="group">
-          <label for="pass" class="label">Last Name</label>
-          <input id="pass" type="text" class="input">
-        </div>
-        <div class="group">
-          <button type="button" class="btn button btn-primary">Sign Un</button>
-        </div>
-      </div>
-    </div>
+<div id="front-home">
+  <div id="tagline">
+    <h2>Collaborative Investing.</h2>
+    <h2 class="font-weight-bold">Redefined.</h2>
   </div>
+  <%= link_to "GET STARTED", signup_path, class: "btn btn-flat", id:"home-signup" %>
+  <!-- <p id="tagline-description">Create teams to pool together funds and vote on investment suggestions in an attempt to collaboratively grow your portfolio.</p> -->
 </div>
-</body>
-</html>
