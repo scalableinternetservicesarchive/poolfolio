@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'static_pages#home'
 
   get '/help', to: 'static_pages#help'
@@ -6,8 +7,5 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/signup', to: 'static_pages#signup'
   get '/login', to: 'static_pages#login'
-
-
-  resources :users
 
 end
