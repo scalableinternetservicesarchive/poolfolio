@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'static_pages#signup'
   get '/login', to: 'static_pages#login'
 
+  resources :users
+
 end
