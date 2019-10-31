@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
       current_user
   end
+
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
   protected
 
   def configure_permitted_parameters
