@@ -1,7 +1,9 @@
-<div class="row" style="margin-top: 40px;">
-    <% @users.each do |user| %>
-        <li>
-            <%= user.firstname %> <%= user.lastname %>: <%= user.email %>
-        </li>
-    <% end %>
+<div class="row">
+    <ul>
+        <% @users.each do |user| %>
+            <li>
+                <%= user.firstname %> <%= user.lastname %>: <%= user.email %>
+            </li>
+        <% end %>
+    </ul>
 </div>

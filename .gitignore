@@ -222,3 +222,6 @@ typings/
 
 # Recursively ignore all log files
 **/*.log
+
+# Ignore database log files
+db/test.sqlite3-*
