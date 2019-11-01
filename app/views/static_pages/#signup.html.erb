@@ -1,0 +1,18 @@
+<!--<div class="center jumbotron">-->
+<!--<h1>Poolfolio - <u>Collaborative Investing</u></h1>-->
+<% @title = "Sign Up" %>
+<% provide(:title, @title) %>
+
+<div class="wrapper">
+  <form class="form-signin">
+    <h2 class="form-signin-heading center"><%= @title %></h2>
+    <input type="text" class="form-control" name="firstname" placeholder="First Name" required autofocus/>
+    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required />
+    <input type="text" class="form-control" name="username" placeholder="Email Address" required />
+    <input type="password" class="form-control" name="password" placeholder="Password" required/>
+    <input type="password" class="form-control" name="password" placeholder="Password Confirmation" required/>
+    <input type="text" class="form-control" name="team_id" required/>
+    <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Sign Up</button>
+    <p class="center mt-3">Already a user? Log in <%= link_to 'here', login_path %>.</p>
+  </form>
+</div>
