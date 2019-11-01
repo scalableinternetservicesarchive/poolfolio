@@ -17168,3 +17168,71 @@ Processing by StaticPagesController#about as HTML
 Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 12692)
 
 
+Started GET "/" for ::1 at 2019-11-01 10:54:01 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 4.3ms | Allocations: 619)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 385)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 297)
+Completed 200 OK in 5234ms (Views: 5215.8ms | ActiveRecord: 0.0ms | Allocations: 1411326)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-11-01 10:54:11 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 216)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 438)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2906)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 63ms (Views: 47.2ms | ActiveRecord: 1.1ms | Allocations: 23759)
+
+
+Started GET "/about" for ::1 at 2019-11-01 10:54:14 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 1.3ms | Allocations: 163)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 200)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 109)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 12701)
+
+
+Started GET "/contact" for ::1 at 2019-11-01 10:54:16 -0700
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.5ms | Allocations: 152)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 200)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 109)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 12649)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-01 10:54:17 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 4869)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 147)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 18218)
+
+
+Started GET "/about" for ::1 at 2019-11-01 10:54:18 -0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 200)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 12398)
+
+
+Started GET "/" for ::1 at 2019-11-01 10:54:18 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 142)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.0ms | Allocations: 12445)
+
+
