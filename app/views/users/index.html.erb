@@ -1,1 +1,7 @@
-<%= @user.firstname %>, <%= @user.email %>
+<div class="row" style="margin-top: 40px;">
+    <% @users.each do |user| %>
+        <li>
+            <%= user.firstname %> <%= user.lastname %>: <%= user.email %>
+        </li>
+    <% end %>
+</div>

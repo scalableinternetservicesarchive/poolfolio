@@ -1,9 +1,9 @@
 <% provide(:title, @user.firstname) %>
-<div class="row">
-  <aside class="col-md-4">
+<div class="row" style="margin-top: 40px;">
+  <aside class="col-md-12">
     <section class="user_info">
       <h1>
-        <%= @user.firstname %>
+        <%= @user.firstname %> <%= @user.lastname %>: <%= @user.email %>
       </h1>
     </section>
   </aside>
