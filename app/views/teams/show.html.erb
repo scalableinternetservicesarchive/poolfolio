@@ -1,0 +1,16 @@
+<% provide(:title, @team.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="team_info">
+      <h1>
+        <%= @team.name %>
+      </h1>
+      <h2>
+        <%= @team.value %>
+      </h2>
+    </section>
+  </aside>
+</div>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

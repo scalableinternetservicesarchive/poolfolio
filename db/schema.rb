@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_175648) do
+ActiveRecord::Schema.define(version: 2019_11_01_163629) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "portfolio_name"
     t.float "portfolio_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_175648) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "firstname"
     t.string "lastname"
+    t.integer "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
