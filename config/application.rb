@@ -11,6 +11,11 @@ module Poolfolio
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # Scaffold generation doesn't overwrite existing the scaffolds.scss stylsesheet
+    config.generators do |g|
+      g.stylesheets false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

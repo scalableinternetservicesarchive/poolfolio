@@ -225,3 +225,6 @@ typings/
 
 # Ignore database log files
 db/test.sqlite3-*
+
+# Ignore bootsnap cache
+tmp/cache/bootsnap-compile-cache/*
