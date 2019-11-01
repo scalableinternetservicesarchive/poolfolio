@@ -219,3 +219,6 @@ typings/
 
 # Emacs back up copies
 *~
+
+# Recursively ignore all log files
+**/*.log
