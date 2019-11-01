@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :teams
-  resources :users
+  
   devise_for :users
   root 'static_pages#home'
 
@@ -10,5 +9,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'static_pages#signup'
   get '/login', to: 'static_pages#login'
   get "*path", to: redirect('/')
+  
+  #Resources Must Go Here.
+  resources :teams
+  resources :users
   
 end
