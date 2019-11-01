@@ -17168,3 +17168,1788 @@ Processing by StaticPagesController#about as HTML
 Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 12692)
 
 
+Started GET "/" for 128.97.216.33 at 2019-11-01 05:36:34 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 498)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 385)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 297)
+Completed 200 OK in 14298ms (Views: 14287.1ms | ActiveRecord: 0.0ms | Allocations: 1316747)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 05:36:48 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 140)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 11799)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 05:38:26 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 216)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 438)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2868)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 151)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 109)
+Completed 200 OK in 36ms (Views: 24.4ms | ActiveRecord: 0.7ms | Allocations: 22911)
+
+
+Started POST "/users" for 128.97.216.33 at 2019-11-01 05:38:46 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"9LE2wLRBYIZdH+SCvbXETZWEG40sAI9mXtjUgqLhAosVx7sc7DGgCOIeeeZMIjDOokNmli/bM6Q8x6uxZvXS4g==", "user"=>{"firstname"=>"Hanyao ", "lastname"=>"Liu", "email"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hanyao.liu98@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "firstname", "lastname") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "hanyao.liu98@gmail.com"], ["encrypted_password", "$2a$11$9vpUfa1Ktf9gmKAAY19kDObMjPqvfqVVFUfNPq9TUR.yVs/HkvgSG"], ["created_at", "2019-11-01 05:38:47.055036"], ["updated_at", "2019-11-01 05:38:47.055036"], ["firstname", "Hanyao "], ["lastname", "Liu"]]
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Completed 302 Found in 198ms (ActiveRecord: 12.7ms | Allocations: 13577)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 05:38:47 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 130)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.9ms | Allocations: 1053)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 14058)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 05:38:53 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 1.6ms | Allocations: 158)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 995)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.1ms | Allocations: 12856)
+
+
+Started GET "/contact" for 128.97.216.33 at 2019-11-01 05:38:56 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 1.0ms | Allocations: 151)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 993)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 12806)
+
+
+Started DELETE "/users/sign_out" for 128.97.216.33 at 2019-11-01 05:39:00 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"M1YfQ4lWPT1gcRNVugYNLBDAA9gR2WKQ7XMpZorJOFy/wAVwU3WXsikwj9n6SBjWtKf/mvXtKw0cC5Nbbi2xkw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.1ms | Allocations: 2920)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 05:39:01 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 138)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 11817)
+
+
+Started GET "/users/sign_in" for 128.97.216.33 at 2019-11-01 05:39:04 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1986)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 147)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 14588)
+
+
+Started POST "/users/sign_in" for 128.97.216.33 at 2019-11-01 05:39:11 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"L7Mv1TpoIlo5UnYVPO23kanaz2GxGWkdyRhpfVvxo8DXGcBONuC83Zus0JyCPe3+bIKe4+tYlSvm70HWF2unIA==", "user"=>{"email"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "hanyao.liu98@gmail.com"], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Completed 302 Found in 159ms (ActiveRecord: 0.2ms | Allocations: 3367)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 05:39:11 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 3.6ms | Allocations: 981)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 110)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.2ms | Allocations: 13073)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 05:39:19 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1784)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 05:39:19 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.2ms | Allocations: 13072)
+
+
+Started GET "/contact" for 128.97.216.33 at 2019-11-01 05:39:25 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 979)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.2ms | Allocations: 12538)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 05:39:27 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.1ms | Allocations: 12527)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 05:39:30 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 916)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 12566)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 05:40:19 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.2ms | Allocations: 13036)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 15:58:49 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.0) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.0) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTeams (20191101155639)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "value" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191101155639"]]
+  [1m[35m (14.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 128.97.216.33 at 2019-11-01 15:59:38 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 14.7ms | Allocations: 8367)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 366)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 299)
+Completed 200 OK in 6187ms (Views: 6176.3ms | ActiveRecord: 1.4ms | Allocations: 1310390)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 15:59:44 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.0ms | Allocations: 933)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 102)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.1ms | Allocations: 13524)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 15:59:53 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1172)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 6.9ms | Allocations: 960)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 43ms (Views: 37.9ms | ActiveRecord: 0.6ms | Allocations: 15536)
+
+
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 16:00:00 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 18.0ms | Allocations: 5925)
+  Rendered teams/new.html.erb within layouts/application (Duration: 19.7ms | Allocations: 6273)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 964)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 45ms (Views: 38.3ms | ActiveRecord: 0.5ms | Allocations: 22593)
+
+
+Started GET "/users" for 128.97.216.33 at 2019-11-01 16:00:15 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1650)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 2794)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for nil:NilClass):
+    1: <%= @user.firstname %>, <%= @user.email %>
+  
+app/views/users/index.html.erb:1
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:00:22 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 969)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.1ms | Allocations: 13516)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:00:30 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 132)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 983)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.3ms | Allocations: 14340)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:00:49 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 921)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.1ms | Allocations: 13454)
+
+
+Started GET "/contact" for 128.97.216.33 at 2019-11-01 16:00:59 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.9ms | Allocations: 159)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 979)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.1ms | Allocations: 13665)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 16:01:00 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.9ms | Allocations: 156)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 981)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.1ms | Allocations: 13701)
+
+
+Started DELETE "/users/sign_out" for 128.97.216.33 at 2019-11-01 16:01:02 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2hjt/yt18SpiLOBoeITF43/b0iBE0b3t6ZHIUF6jJRrG+5NwnNqdEP5UAMFcnD36HX+sC6uoq+FA0+71CRfmng=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.1ms | Allocations: 2955)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:01:02 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 152)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 12698)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 16:01:35 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 439)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2370)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms | Allocations: 16253)
+
+
+Started GET "/login" for 128.97.216.33 at 2019-11-01 16:01:47 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 264)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 174)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 12958)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 16:01:56 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 12620)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 16:02:08 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 12618)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 16:02:17 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 12624)
+
+
+Started GET "/signup" for 128.97.216.33 at 2019-11-01 16:02:30 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#signup as HTML
+  Rendering static_pages/signup.html.erb within layouts/application
+  Rendered static_pages/signup.html.erb within layouts/application (Duration: 0.9ms | Allocations: 210)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 174)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 12938)
+
+
+Started GET "/signup?firstname=Hanyao&lastname=Liu&username=hanyao.liu98%40gmail.com&password=[FILTERED]&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 16:02:38 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#signup as HTML
+  Parameters: {"firstname"=>"Hanyao", "lastname"=>"Liu", "username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/signup.html.erb within layouts/application
+  Rendered static_pages/signup.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 12627)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 16:02:43 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 187)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.0ms | Allocations: 12614)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:02:43 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 138)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 12660)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:03:25 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 617)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 174)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.1ms | Allocations: 13202)
+
+
+Started GET "/users/sign_in" for 128.97.216.33 at 2019-11-01 16:03:29 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 117)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3846)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 147)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 17218)
+
+
+Started POST "/users/sign_in" for 128.97.216.33 at 2019-11-01 16:03:35 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"yZnkUBkQQ1xUXZgWsHySUx603wJdoWn023TX/4lbCez0E16W0QeOlr+6D3/y8AcyT+OoSUxVKOf6gBt4rlSiog==", "user"=>{"email"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "hanyao.liu98@gmail.com"], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Completed 302 Found in 171ms (ActiveRecord: 0.3ms | Allocations: 4601)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:03:36 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 981)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.2ms | Allocations: 13937)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:03:43 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 921)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.1ms | Allocations: 13450)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:03:45 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.2ms | Allocations: 13904)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:03:47 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 913)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.1ms | Allocations: 13429)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:03:52 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.2ms | Allocations: 13909)
+
+
+Started GET "/users/sign_in" for 128.97.216.33 at 2019-11-01 16:04:01 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1785)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:04:01 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 13943)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 16:04:03 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1770)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:04:03 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 3.4ms | Allocations: 974)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.3ms | Allocations: 13937)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 16:04:05 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1773)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:04:05 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.3ms | Allocations: 13929)
+
+
+Started GET "/contact" for 128.97.216.33 at 2019-11-01 16:04:07 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 6.3ms | Allocations: 970)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.1ms | Allocations: 13383)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 16:04:10 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.9ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.1ms | Allocations: 13394)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:04:12 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 913)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.1ms | Allocations: 13419)
+
+
+Started GET "/users" for 128.97.216.33 at 2019-11-01 16:04:38 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1276)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1744)
+
+
+  
+ActionView::Template::Error (undefined method `firstname' for nil:NilClass):
+    1: <%= @user.firstname %>, <%= @user.email %>
+  
+app/views/users/index.html.erb:1
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:04:49 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 972)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 13907)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:05:35 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 618)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 959)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.2ms | Allocations: 13999)
+
+
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 16:05:39 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 1.3ms | Allocations: 704)
+  Rendered teams/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 789)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 953)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.1ms | Allocations: 14171)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:10:29 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 11.3ms | Allocations: 7393)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 106)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 112)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.8ms | Allocations: 20747)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:10:31 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 982)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 14163)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:11:21 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1212)
+
+
+  
+SyntaxError (/home/ubuntu/environment/poolfolio/app/models/team.rb:2: syntax error, unexpected ':', expecting end
+  has_many: users
+          ^):
+  
+app/models/team.rb:2: syntax error, unexpected ':', expecting end
+app/models/team.rb:2: syntax error, unexpected ':', expecting end
+app/models/team.rb:2: syntax error, unexpected ':', expecting end
+app/controllers/teams_controller.rb:7:in `index'
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:12:17 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1055)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 12.2ms | Allocations: 7174)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 112)
+Completed 200 OK in 41ms (Views: 30.1ms | ActiveRecord: 1.7ms | Allocations: 22798)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:12:29 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1359)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=1):
+  
+app/controllers/teams_controller.rb:67:in `set_team'
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:12:35 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 611)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.2ms | Allocations: 13980)
+
+
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 16:12:37 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 1.4ms | Allocations: 759)
+  Rendered teams/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 844)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 953)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.1ms | Allocations: 16898)
+
+
+Started POST "/teams" for 128.97.216.33 at 2019-11-01 16:12:42 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#create as HTML
+  Parameters: {"authenticity_token"=>"rLjRkoN7Qfc/7Qhu4VxgU8yrAJdGkiU+ErGMyXNzZGQ8+NoJ4SlyuoQOgAVkbi+v+jA8AfYGeT2OHCf4l9J+fg==", "team"=>{"name"=>"123", "value"=>"123"}, "commit"=>"Create Team"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:30:in `block in create'
+  [1m[36mTeam Create (0.9ms)[0m  [1m[32mINSERT INTO "teams" ("name", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "123"], ["value", 123], ["created_at", "2019-11-01 16:12:42.389519"], ["updated_at", "2019-11-01 16:12:42.389519"]]
+  ↳ app/controllers/teams_controller.rb:30:in `block in create'
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:30:in `block in create'
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/teams/1
+Completed 302 Found in 22ms (ActiveRecord: 13.6ms | Allocations: 3753)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:12:42 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 274)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 19.3ms | Allocations: 959)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.2ms | Allocations: 14319)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:13:01 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 735)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.2ms | Allocations: 14104)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:13:04 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.2ms | Allocations: 13962)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:14:07 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 732)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 14101)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:14:10 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 13963)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:14:17 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 732)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.2ms | Allocations: 14099)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:14:20 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 13963)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:15:06 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 1198)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 290)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.2ms | Allocations: 16057)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:15:10 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 998)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 959)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 14521)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:15:16 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 78)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.2ms | Allocations: 13968)
+
+
+Started GET "/teams/1/edit" for 128.97.216.33 at 2019-11-01 16:15:18 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/edit.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 1.8ms | Allocations: 1095)
+  Rendered teams/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1488)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 5.0ms | Allocations: 960)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.2ms | Allocations: 15525)
+
+
+Started PATCH "/teams/1" for 128.97.216.33 at 2019-11-01 16:15:27 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#update as HTML
+  Parameters: {"authenticity_token"=>"ixRKe7RkkU4Nul6YslXMSw1ZFgIGTW3f2N436HHRYLVT9nfoJMb17L+ijR9xv8I4p6g5lfM5wmCXSrLF7lbhmw==", "team"=>{"name"=>"Team1", "value"=>"666"}, "commit"=>"Update Team", "id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:44:in `block in update'
+  [1m[36mTeam Update (0.9ms)[0m  [1m[33mUPDATE "teams" SET "name" = ?, "value" = ?, "updated_at" = ? WHERE "teams"."id" = ?[0m  [["name", "Team1"], ["value", 666], ["updated_at", "2019-11-01 16:15:27.608994"], ["id", 1]]
+  ↳ app/controllers/teams_controller.rb:44:in `block in update'
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:44:in `block in update'
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/teams/1
+Completed 302 Found in 24ms (ActiveRecord: 13.7ms | Allocations: 4229)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:15:27 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 78)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 108)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.2ms | Allocations: 14134)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:15:38 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 733)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 6.9ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.2ms | Allocations: 14097)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:16:56 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 4065)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 28.2ms | Allocations: 7095)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 112)
+Completed 200 OK in 84ms (Views: 75.5ms | ActiveRecord: 2.6ms | Allocations: 25086)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:16:58 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:67:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 78)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.9ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.3ms | Allocations: 14070)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 16:17:00 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.9ms | Allocations: 156)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 6.3ms | Allocations: 982)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.1ms | Allocations: 14299)
+
+
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTeamIdToUsers (20191101163629)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "users" ADD "team_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191101163629"]]
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/about" for 128.97.216.33 at 2019-11-01 16:46:05 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 11.6ms | Allocations: 6838)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 112)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.8ms | Allocations: 20099)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:46:05 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1160)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.1ms | Allocations: 13824)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 16:46:07 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 126)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 982)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.3ms | Allocations: 14794)
+
+
+Started DELETE "/users/sign_out" for 128.97.216.33 at 2019-11-01 16:46:11 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zabv4Yli267JJXqmOZIWss5v+p79SZOuEklIkTG4O/GdoRIPgmkiVU0iSRA/R+BTcwh8CWSs9tB0vKjuihG6aQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 2384)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 16:46:11 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 148)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 127)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 12706)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 16:46:14 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 206)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 425)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1970)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 15842)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 16:48:57 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 4032)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 183)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 52ms (Views: 48.3ms | ActiveRecord: 0.7ms | Allocations: 18305)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 16:48:59 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:69:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 78)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 38ms (Views: 16.1ms | ActiveRecord: 0.2ms | Allocations: 16868)
+
+
+Started GET "/teams/1" for 128.97.216.33 at 2019-11-01 17:25:26 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:69:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 87)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 110)
+Completed 200 OK in 30ms (Views: 19.7ms | ActiveRecord: 0.2ms | Allocations: 17740)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 17:25:29 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY created_at DESC[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 812)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 13404)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 17:37:18 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY created_at DESC[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 27.7ms | Allocations: 3997)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 422)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 291)
+Completed 200 OK in 52ms (Views: 48.0ms | ActiveRecord: 0.2ms | Allocations: 19884)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 17:37:20 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.4ms | Allocations: 153)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 197)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 13511)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 17:37:23 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 352)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 127)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 13042)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 17:41:49 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.5ms | Allocations: 522)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 385)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 297)
+Completed 200 OK in 1460ms (Views: 1450.9ms | ActiveRecord: 0.0ms | Allocations: 1285871)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 17:41:51 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 140)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 12680)
+
+
+Started GET "/users/sign_up" for 128.97.216.33 at 2019-11-01 17:41:57 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 216)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 438)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2535)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 40ms (Views: 28.8ms | ActiveRecord: 0.7ms | Allocations: 23799)
+
+
+Started GET "/login" for 128.97.216.33 at 2019-11-01 17:42:00 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 265)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 174)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 12962)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 17:42:05 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 49)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 26ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 12619)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 17:42:12 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.1ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 12619)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 17:42:21 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 12630)
+
+
+Started GET "/signup" for 128.97.216.33 at 2019-11-01 17:42:24 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#signup as HTML
+  Rendering static_pages/signup.html.erb within layouts/application
+  Rendered static_pages/signup.html.erb within layouts/application (Duration: 1.0ms | Allocations: 210)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 174)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 12933)
+
+
+Started GET "/signup?firstname=Hanyao&lastname=Liu&username=hanyao.liu98%40gmail.com&password=[FILTERED]&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 17:42:31 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#signup as HTML
+  Parameters: {"firstname"=>"Hanyao", "lastname"=>"Liu", "username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/signup.html.erb within layouts/application
+  Rendered static_pages/signup.html.erb within layouts/application (Duration: 0.7ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 12630)
+
+
+Started GET "/login" for 128.97.216.33 at 2019-11-01 17:42:33 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 49)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 12619)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 17:42:39 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 12623)
+
+
+Started GET "/login?username=hanyao.liu98%40gmail.com&password=[FILTERED]" for 128.97.216.33 at 2019-11-01 17:42:50 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#login as HTML
+  Parameters: {"username"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]"}
+  Rendering static_pages/login.html.erb within layouts/application
+  Rendered static_pages/login.html.erb within layouts/application (Duration: 0.2ms | Allocations: 48)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 12625)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 17:45:48 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 138)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 123)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 12666)
+
+
+Started GET "/users/sign_in" for 128.97.216.33 at 2019-11-01 17:45:50 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 3356)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 147)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.0ms | Allocations: 16916)
+
+
+Started POST "/users/sign_in" for 128.97.216.33 at 2019-11-01 17:45:58 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Rp8cxaS+l9Bev0GO8JMdyjWPaV6sWT059v47HWXHY9csFSS/HsUHGMni+nd4/VUl28htF2E6kKJj1XFMwOvuBQ==", "user"=>{"email"=>"hanyao.liu98@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "hanyao.liu98@gmail.com"], ["LIMIT", 1]]
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/users/7
+Completed 302 Found in 171ms (ActiveRecord: 0.2ms | Allocations: 5412)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 17:45:58 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 129)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1014)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.4ms | Allocations: 14846)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 17:46:05 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.7ms | Allocations: 970)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.1ms | Allocations: 13498)
+
+
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 17:46:07 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:17:in `new'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 3921)
+
+
+  
+NoMethodError (undefined method `build' for nil:NilClass):
+  
+app/controllers/teams_controller.rb:17:in `new'
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 18:10:27 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY created_at DESC[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4409)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 10.8ms | Allocations: 7289)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 112)
+Completed 200 OK in 40ms (Views: 33.7ms | ActiveRecord: 0.9ms | Allocations: 26505)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 18:10:27 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 19.0ms | Allocations: 1006)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.1ms | Allocations: 13749)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 18:10:31 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 4.1ms | Allocations: 982)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.3ms | Allocations: 14165)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 18:10:33 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 947)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms | Allocations: 13458)
+
+
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 18:10:34 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.3ms | Allocations: 1797)
+  Rendered teams/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2130)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2723)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_with(model: team, local: true) do |form| %>
+    2:   <% if team.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+    5: 
+  
+app/views/teams/_form.html.erb:2
+app/views/teams/_form.html.erb:1
+app/views/teams/new.html.erb:3
+Started GET "/" for 128.97.216.33 at 2019-11-01 18:10:52 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 955)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.1ms | Allocations: 13483)
+
+
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 18:10:54 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 1.3ms | Allocations: 1460)
+  Rendered teams/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1527)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1993)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_with(model: team, local: true) do |form| %>
+    2:   <% if team.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+    5: 
+  
+app/views/teams/_form.html.erb:2
+app/views/teams/_form.html.erb:1
+app/views/teams/new.html.erb:3
+Started GET "/teams/new" for 128.97.216.33 at 2019-11-01 18:20:37 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 2.6ms | Allocations: 961)
+  Rendered teams/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1047)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 11.8ms | Allocations: 7309)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 112)
+Completed 200 OK in 53ms (Views: 46.3ms | ActiveRecord: 0.2ms | Allocations: 25193)
+
+
+Started POST "/teams" for 128.97.216.33 at 2019-11-01 18:20:48 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#create as HTML
+  Parameters: {"authenticity_token"=>"r5t1pVMnq5rPLGaGzAoVHgShElNCIBDsflpGOopfKzqESbtgfODah0XjkiZHXXTFjuwSq94/1knmxicRMjHyiA==", "team"=>{"name"=>"Team1", "value"=>"3"}, "commit"=>"Create Team"}
+[31mUnpermitted parameter: :value[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:28:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/teams_controller.rb:31:in `block in create'
+  [1m[36mTeam Create (0.9ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Team1"], ["created_at", "2019-11-01 18:20:48.380860"], ["updated_at", "2019-11-01 18:20:48.380860"]]
+  ↳ app/controllers/teams_controller.rb:31:in `block in create'
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/teams_controller.rb:31:in `block in create'
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/teams/2
+Completed 302 Found in 25ms (ActiveRecord: 13.7ms | Allocations: 4887)
+
+
+Started GET "/teams/2" for 128.97.216.33 at 2019-11-01 18:20:48 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:68:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 252)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 959)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 23ms (Views: 18.7ms | ActiveRecord: 0.6ms | Allocations: 14575)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 18:20:52 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY created_at DESC[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 873)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.3ms | Allocations: 14257)
+
+
+Started GET "/teams/2" for 128.97.216.33 at 2019-11-01 18:20:56 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:68:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 75)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 0.2ms | Allocations: 13956)
+
+
+Started GET "/teams/2/edit" for 128.97.216.33 at 2019-11-01 18:20:57 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:68:in `set_team'
+  Rendering teams/edit.html.erb within layouts/application
+  Rendered teams/_form.html.erb (Duration: 1.3ms | Allocations: 766)
+  Rendered teams/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1019)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 6.4ms | Allocations: 958)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.2ms | Allocations: 15049)
+
+
+Started PATCH "/teams/2" for 128.97.216.33 at 2019-11-01 18:21:01 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#update as HTML
+  Parameters: {"authenticity_token"=>"Ku1w6/1a/M0g6ulIUM01fIXBQ9hzovcRSQzT5sGuSi79SGag3xIpPpS9OTgja50ArBst8sxfDmQgSzAXLWUM3w==", "team"=>{"name"=>"Team1", "value"=>"3"}, "commit"=>"Update Team", "id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:68:in `set_team'
+[31mUnpermitted parameter: :value[0m
+Redirected to https://fd89132787254177b5f05c030ee6fbc8.vfs.cloud9.us-east-2.amazonaws.com/teams/2
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1234)
+
+
+Started GET "/teams/2" for 128.97.216.33 at 2019-11-01 18:21:01 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:68:in `set_team'
+  Rendering teams/show.html.erb within layouts/application
+  Rendered teams/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 76)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.3ms | Allocations: 13980)
+
+
+Started GET "/teams" for 128.97.216.33 at 2019-11-01 18:21:03 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY created_at DESC[0m
+  ↳ app/views/teams/index.html.erb:15
+  Rendered teams/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 869)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 954)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.3ms | Allocations: 14259)
+
+
+Started GET "/about" for 128.97.216.33 at 2019-11-01 18:21:19 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.4ms | Allocations: 157)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 982)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.1ms | Allocations: 13867)
+
+
+Started GET "/" for 128.97.216.33 at 2019-11-01 18:21:20 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:6
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1000)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 108)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.1ms | Allocations: 13521)
+
+
+Started GET "/users/7" for 128.97.216.33 at 2019-11-01 18:21:22 +0000
+Cannot render console from 128.97.216.33! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:12
+  Rendered layouts/_header.html.erb (Duration: 2.9ms | Allocations: 984)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 110)
+Completed 200 OK in 40ms (Views: 36.9ms | ActiveRecord: 0.3ms | Allocations: 14159)
+
+
