@@ -24,6 +24,9 @@ Things you may want to cover:
 * ...
 # poolfolio
 
+### Master Plan
+    https://docs.google.com/document/d/1evWD6qk7TEPbiDrTsSlK1oq_qJj6Bc8PHwp7SZ4WLc4/edit?usp=sharing
+
 ### Team Members:
     Pierson Marks, pmarks98, ![Pierson Marks Photo](profileimg/piersonmarks.png)
     Hanyao Liu, liuhanyao98, ![Hanyao Liu Photo](profileimg/HanyaoLiu.jpeg)
