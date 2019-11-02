@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_214458) do
+ActiveRecord::Schema.define(version: 2019_11_02_020255) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "portfolio_name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_214458) do
 
   create_table "stocks", force: :cascade do |t|
     t.string "ticker"
-    t.integer "price"
+    t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
