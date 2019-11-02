@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
   #Resources Must Go Here.
-  resources :users, :teams, :stocks, :holdings
+  resources :teams, :stocks, :holdings
   devise_for :users
+  get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show'
+
   root 'static_pages#home'
 
   get '/help', to: 'static_pages#help'
