@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  
-  resources :suggestions
-  #Resources Must Go Here.
-  resources :teams, :stocks, :holdings
+
+
   devise_for :users
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
@@ -15,5 +13,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'static_pages#signup'
   get '/login', to: 'static_pages#login'
   get "*path", to: redirect('/')
-  
+
+  #Resources Must Go Here. Don't move above.
+  resources :suggestions
+  resources :teams, :stocks, :holdings
+
 end

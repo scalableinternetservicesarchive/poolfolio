@@ -26,6 +26,10 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password Confirmation' %>
     </div>
 
+    <div class="field">
+      <%= f.hidden_field :team_id, class: 'form-control', :value => -1 %>
+    </div>
+
     <div class="actions">
       <%= f.submit "Sign Up", class: "btn btn-lg btn-primary btn-block mt-5" %>
     </div>
