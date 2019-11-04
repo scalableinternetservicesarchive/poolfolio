@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_235338) do
+ActiveRecord::Schema.define(version: 2019_11_04_020937) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2019_11_03_235338) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "suggestions", force: :cascade do |t|
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_suggestions_on_team_id"
+    t.index ["user_id"], name: "index_suggestions_on_user_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "value"
@@ -53,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_235338) do
     t.integer "team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
 end

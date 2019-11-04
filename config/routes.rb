@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :suggestions
   #Resources Must Go Here.
   resources :teams, :stocks, :holdings
   devise_for :users
