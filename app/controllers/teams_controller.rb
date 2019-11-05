@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:join, :create]
   # GET /teams
   # GET /teams.json
   def index
@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @users = User.where(team_id: @team.id)
   end
 
   # GET /teams/new
@@ -27,10 +28,10 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-    current_user.update_attribute(:team_id, @team.id)
 
     respond_to do |format|
       if @team.save
+        current_user.update_attribute(:team_id, @team.id)
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
