@@ -9,4 +9,14 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  before_action :authenticate_user!, :check_user
+
+  private
+
+    def check_user
+      if current_user != User.find(params[:id])
+        redirect_to login_path, alert: "Please login to access your homepage."
+
+      end
+    end
 end
