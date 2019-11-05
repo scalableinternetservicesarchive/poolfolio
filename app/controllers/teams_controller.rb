@@ -7,6 +7,11 @@ class TeamsController < ApplicationController
     @teams = Team.all.order("created_at DESC")
   end
 
+
+  def join
+  end
+
+
   # GET /teams/1
   # GET /teams/1.json
   def show
@@ -17,16 +22,13 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  # GET /teams/1/edit
-  def edit
-  end
 
   # POST /teams
   # POST /teams.json
   def create
     @team = Team.new(team_params)
     current_user.update_attribute(:team_id, @team.id)
-    
+
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }

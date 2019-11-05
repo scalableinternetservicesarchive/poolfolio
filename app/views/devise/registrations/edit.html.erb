@@ -2,7 +2,7 @@
 <% provide(:title, @title) %>
 
 <div class="wrapper">
-<p class="center"><%= link_to "Back to Profile.", :back %></p>
+<p class="center"><%= link_to "Back to Hub.", :back %></p>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-signin' }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 

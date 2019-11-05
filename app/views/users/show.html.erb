@@ -1,12 +1,39 @@
 <% provide(:title, @user.firstname + " " + @user.lastname) %>
-<div class="row">
-  <aside class="col-md-12">
-    <section class="user_info">
-      <h1>
-        <%= @user.firstname %> <%= @user.lastname %>: <%= @user.email %>
-      </h1>
-      <%= link_to "Edit your profile.", edit_user_registration_path %>
+<% @team = Team.find(@user.team_id) %>
 
-    </section>
-  </aside>
+<div class="center bd-highlight mt-5 pl-3 pr-3">
+  <div class="container-fluid center">
+    <div class="row">
+      <div class="col-2 center">
+        <h6 class="font-weight-bold">
+        <%= link_to @user.firstname + "'s Homepage" , edit_user_registration_path %>
+        </h6>
+        <p><%=
+        if @team.name.blank?
+          link_to "Click to join a team.", teams_join_path 
+        else
+          @team.name + "'s Hub"
+        end
+        %>
+        </p>
+      </div>
+
+      <div class="col center ">
+        <h6>
+          <b>Portfolio Total Value: </b>$<%=
+          if @team.value.blank?
+            "0"
+          else
+            @team.value
+          end
+          %>
+        </h6>
+      </div>
+
+      <div class="col-3 bg-warning center">
+        One of three columns
+      </div>
+    </div>
+  </div>
 </div>
+<%# <%= link_to "Edit your profile.", edit_user_registration_path %>

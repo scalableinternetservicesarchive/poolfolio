@@ -4,8 +4,13 @@ Rails.application.routes.draw do
       sessions: "users/sessions",
       registrations: "users/registrations"
     }
+
+  #Users
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
+
+  #Teams
+  get 'teams/join', to: 'teams#join'
 
   resources :teams, :stocks, :holdings, :suggestions, :users
 
