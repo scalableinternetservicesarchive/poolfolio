@@ -19,12 +19,14 @@
     </div>
 
     <div class="field">
-      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Password' %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Password*' %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password Confirmation' %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password Confirmation*' %>
     </div>
+    
+    <p>*Password must be at least <%= @minimum_password_length %> characters long.</p>
 
     <div class="field">
       <%= f.hidden_field :team_id, class: 'form-control', :value => -1 %>
