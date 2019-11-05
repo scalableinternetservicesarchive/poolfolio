@@ -228,3 +228,6 @@ db/test.sqlite3-*
 
 # Ignore bootsnap cache
 tmp/cache/bootsnap-compile-cache/*
+
+# Ignore local dev database files
+db/development.sqlite3

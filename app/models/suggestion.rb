@@ -1,4 +1,4 @@
 class Suggestion < ApplicationRecord
     belongs_to  :user
-    belongs_to  :teams
+    belongs_to  :team
 end
