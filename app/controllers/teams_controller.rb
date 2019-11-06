@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :join]
   before_action :authenticate_user!, only: [:join, :create]
   # GET /teams
   # GET /teams.json
@@ -9,6 +9,8 @@ class TeamsController < ApplicationController
 
 
   def join
+    current_user.update_attribute(:team_id, @team.id)
+    redirect_to current_user
   end
 
 

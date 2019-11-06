@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
 
+  resources :stocks, :holdings, :suggestions, :users
+  
   #Teams
-  get 'teams/join', to: 'teams#join'
-
-  resources :teams, :stocks, :holdings, :suggestions, :users
-
+  resources :teams do
+    get 'join', on: :member
+  end
+  
   root 'static_pages#home'
 
   get '/help', to: 'static_pages#help'
