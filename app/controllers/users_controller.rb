@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @teams = Team.all.order("created_at DESC")
   end
 
 

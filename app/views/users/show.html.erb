@@ -1,5 +1,6 @@
 <% provide(:title, @user.firstname + " " + @user.lastname) %>
 <% @team = Team.find(@user.team_id) %>
+<% @teams = Team.all() %>
 
 <div class="center bd-highlight mt-5 pl-3 pr-3">
   <div class="container-fluid center">
@@ -10,7 +11,7 @@
         </h6>
         <p><%=
         if @team.name.blank?
-          link_to "Click to join a team.", teams_join_path 
+          link_to "Click to Join a team.", teams_join_path
         else
           @team.name + "'s Hub"
         end
@@ -28,12 +29,49 @@
           end
           %>
         </h6>
+        <i>Cash Value:</i>
       </div>
 
-      <div class="col-3 bg-warning center">
-        One of three columns
+      <div class="col-2 center">
+        <%= button_to "Suggest", '#', class: "btn btn-lg btn-info "%>
       </div>
     </div>
+
+    <div class="container" >
+      <div class="row mt-2" style="height: 40em">
+        <div class="col-2 bg-warning m-2 border border-secondary rounded">
+          <h5 class="font-weight-bold mt-1">Rankings</h5>
+          <div class="d-flex flex-row justify-content-between">
+              <div class="pt-1"><u>Team Name</u></div>
+              <div class="pt-1"><u>Value</u></div>
+          </div>
+
+              <% @teams.each do |team|%>
+                <div class="d-flex flex-row justify-content-between">
+                  <div class=""><%= team.name %></div>
+                  <div class=""><%= team.value %></div>
+                </div>
+              <% end %>
+
+        </div>
+        <div class="col mt-2 d-flex flex-column">
+            <div class="p-2 bg-info " >Flex item 2</div>
+            <div class="p-2 bg-primary align-items-baseline">Flex item 2</div>
+        </div>
+        <div class="col-3 bg-danger m-2">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="d-flex bg-warning">
+      <div class="p-2 bg-info">Flex item 1</div>
+      <div class="p-2 flex-column">
+        <div class="p-2 m-auto bg-primary">Flex item 1</div>
+        <div class="p-2">Flex item 1</div>
+      </div>
+      <div class="p-2 ml-auto bg-danger">Flex item 3</div>
+    </div> -->
   </div>
 </div>
 <%# <%= link_to "Edit your profile.", edit_user_registration_path %>
