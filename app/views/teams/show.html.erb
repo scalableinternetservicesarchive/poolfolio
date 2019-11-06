@@ -8,6 +8,13 @@
       <h2>
         <%= @team.value %>
       </h2>
+      <h3>
+        <% @users.each do |user| %>
+            <li>
+              <%= user.firstname %> <%= user.lastname %>: <%=user.email %>
+            </li>
+        <% end %>
+      </h3>
     </section>
   </aside>
 </div>
