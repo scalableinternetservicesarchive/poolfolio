@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_180047) do
+ActiveRecord::Schema.define(version: 2019_11_08_213124) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "stock_id"
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_Holdings_on_team_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -31,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_180047) do
     t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "team_id"
+    t.index ["ticker"], name: "index_Stocks_on_ticker"
   end
 
   create_table "suggestions", force: :cascade do |t|
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_180047) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "team_id"
+    t.string "ticker"
     t.index ["team_id"], name: "index_suggestions_on_team_id"
     t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
