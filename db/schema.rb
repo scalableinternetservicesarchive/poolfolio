@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_020937) do
+ActiveRecord::Schema.define(version: 2019_11_08_180047) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_020937) do
     t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "team_id"
   end
 
   create_table "suggestions", force: :cascade do |t|
