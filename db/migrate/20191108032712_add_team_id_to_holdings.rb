@@ -1,6 +1,6 @@
 class AddTeamIdToHoldings < ActiveRecord::Migration[6.0]
   def change
-    add_column :Holdings, :team_id, :integer
-    add_index  :Holdings, :team_id
+    add_column :holdings, :team_id, :integer
+    add_index  :holdings, :team_id
   end
 end
