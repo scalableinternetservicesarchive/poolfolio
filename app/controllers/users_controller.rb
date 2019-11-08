@@ -6,12 +6,12 @@ class UsersController < ApplicationController
     @team = Team.find(@user.team_id)
     @stocks = Array.new
     Holding.where(team_id: @user.team_id).each do |holding|
+      stock = Stock.find(holding.stock_id)
       @stocks.push({
         "quantity" => holding.quantity,
-        stock => Stock.find(holding.stock_id),
         "ticker" => stock.ticker,
-        "price" => number_to_currency(stock.price),
-        "total" => number_to_currency(stock.price * holding.quantity)
+        "price" => stock.price,
+        "total" => stock.price * holding.quantity
       })
     end
   end

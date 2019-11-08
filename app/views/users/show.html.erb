@@ -70,8 +70,8 @@
 
             <% @stocks.each do |stock|%>
               <div class="d-flex flex-row justify-content-between">
-                <div class=""><%= stock.ticker %></div>
-                <div class=""><%= stock.quantity %> x <%= stock.price %> = <%=stock. total %></div>
+                <div class=""><%= stock["ticker"] %></div>
+                <div class=""><%= stock["quantity"] %> x <%= stock["price"] %> = <%=stock["total"] %></div>
               </div>
             <% end %>
           <% end %>
