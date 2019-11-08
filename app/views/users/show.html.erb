@@ -11,7 +11,7 @@
         </h6>
         <p><%=
         if @team.name.blank?
-          link_to "Click to Join a team.", teams_join_path
+          link_to "Click to Join a team.", join_team_path
         else
           @team.name + "'s Hub"
         end

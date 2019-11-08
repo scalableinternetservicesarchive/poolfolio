@@ -70,7 +70,8 @@ class TeamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = Team.find(params[:id])
+      @team = Team.find(params[:id]) #This doesn't make sense. Why are we searching for a team that matches the User id?
+    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
