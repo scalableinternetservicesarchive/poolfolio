@@ -6,6 +6,31 @@ class SuggestionsController < ApplicationController
   def index
     @suggestions = Suggestion.all
   end
+  
+  
+  
+  def execute
+    @team = Team.find(@suggestion.team_id)
+    @stock = Stock.find_by(ticker: @suggestion.ticker)
+
+    ## should limiting @suggestion.quantity to ensure @holding.quantity >= 0 after selling and team has enough assets when purchasing.
+    
+    # 1. update holdings table
+    @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
+    if @holding != nil
+      @holding.update_attribute(quantity, @holding.quantity + @suggestion.quantity)
+      if @holding.quantity == 0
+        @holding.destroy
+      end
+    else
+      @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
+    end
+      
+    # 2. update teams table
+    @team.update_attribute(value: @team.value + @stock.price * @suggestion.quantity)
+  end
+
+
 
   # GET /suggestions/1
   # GET /suggestions/1.json
