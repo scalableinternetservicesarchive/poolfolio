@@ -13,7 +13,7 @@ class SuggestionsController < ApplicationController
     @team = Team.find(@suggestion.team_id)
     @stock = Stock.find_by(ticker: @suggestion.ticker)
 
-    ## should limiting @suggestion.quantity to ensure @holding.quantity >= 0 after selling and team has enough assets when purchasing.
+    ## should limiting @suggestion.quantity to ensure @holding.quantity >= 0 after selling and team has enough balance when purchasing.
     
     # 1. update holdings table
     @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
@@ -27,7 +27,7 @@ class SuggestionsController < ApplicationController
     end
       
     # 2. update teams table
-    @team.update_attribute(value: @team.value + @stock.price * @suggestion.quantity)
+    @team.update(value: @team.value + @stock.price * @suggestion.quantity, balance: @team.balance - @stock.price * @suggestion.quantity)
   end
 
 
