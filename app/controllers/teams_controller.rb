@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
 
   def join
     current_user.update_attribute(:team_id, @team.id)
+    @team.update_attribute(balance, @team.balance + 50)
     redirect_to current_user
   end
 
