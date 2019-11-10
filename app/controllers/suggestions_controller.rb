@@ -19,7 +19,7 @@ class SuggestionsController < ApplicationController
     @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
     if @holding != nil
       @holding.update_attribute(quantity, @holding.quantity + @suggestion.quantity)
-      if @holding.quantity == 0
+      if @holding.quantity <= 0
         @holding.destroy
       end
     else
