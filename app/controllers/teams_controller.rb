@@ -10,7 +10,8 @@ class TeamsController < ApplicationController
 
   def join
     current_user.update_attribute(:team_id, @team.id)
-    @team.update_attribute(balance, @team.balance + 50)
+    new_balance = @team.balance + 50
+    @team.update_attribute(:balance, new_balance)
     redirect_to current_user
   end
 
@@ -35,6 +36,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       if @team.save
         current_user.update_attribute(:team_id, @team.id)
+        @team.update_attribute(:balance, 50)
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
