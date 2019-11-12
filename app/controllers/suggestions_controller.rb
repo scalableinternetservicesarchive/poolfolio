@@ -6,15 +6,25 @@ class SuggestionsController < ApplicationController
   def index
     @suggestions = Suggestion.all
   end
-  
-  
-  
+
+  #Voting - acts_as_votable: https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
+  def upvote
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.upvote_from current_user
+  end
+
+  def downvote
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.downvote_from current_user
+  end
+
+
   def execute
     @team = Team.find(@suggestion.team_id)
     @stock = Stock.find_by(ticker: @suggestion.ticker)
 
     ## should limiting @suggestion.quantity to ensure @holding.quantity >= 0 after selling and team has enough balance when purchasing.
-    
+
     # 1. update holdings table
     @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
     if @holding != nil
@@ -25,7 +35,7 @@ class SuggestionsController < ApplicationController
     else
       @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
     end
-      
+
     # 2. update teams table
     @team.update(value: @team.value + @stock.price * @suggestion.quantity, balance: @team.balance - @stock.price * @suggestion.quantity)
   end

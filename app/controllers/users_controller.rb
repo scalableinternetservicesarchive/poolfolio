@@ -15,6 +15,9 @@ class UsersController < ApplicationController
       })
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
+
+    @suggestions = Suggestion.where(team_id: @user.team_id)
+
   end
 
   def index
@@ -31,4 +34,5 @@ class UsersController < ApplicationController
 
       end
     end
+
 end

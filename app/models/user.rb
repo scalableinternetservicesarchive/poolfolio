@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to  :team
   has_many    :suggestions
+
+  #Votable Suggestions
+  acts_as_voter
 end

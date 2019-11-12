@@ -67,7 +67,25 @@ a {
 }
 
 
+.suggestion-body {
 
+    tr{
+      background-color: $clouds;
+    }
+
+    td{
+      padding: 1em;
+    }
+
+    .sell{
+      color: $ruby;
+    }
+
+    .buy{
+      color: $green-sea;
+    }
+
+}
 
 
 /* header */
