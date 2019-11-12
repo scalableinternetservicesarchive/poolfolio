@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_09_065330) do
+ActiveRecord::Schema.define(version: 2019_11_12_004048) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_11_09_065330) do
 
   create_table "stocks", force: :cascade do |t|
     t.string "ticker"
-    t.decimal "price", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["ticker"], name: "index_Stocks_on_ticker", unique: true
   end
 

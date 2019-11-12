@@ -14,6 +14,7 @@ class UsersController < ApplicationController
         "total" => stock.price * holding.quantity
       })
     end
+    @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
   end
 
   def index
