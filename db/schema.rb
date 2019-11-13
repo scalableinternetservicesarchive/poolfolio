@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_223156) do
+ActiveRecord::Schema.define(version: 2019_11_13_224442) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_223156) do
     t.index ["ticker"], name: "index_Stocks_on_ticker", unique: true
   end
 
-  #Total Votes are stored in the Votes table from gem acts_as_votable
   create_table "suggestions", force: :cascade do |t|
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
@@ -53,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_223156) do
     t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "balance"
+    t.integer "balance", default: 50
   end
 
   create_table "users", force: :cascade do |t|
