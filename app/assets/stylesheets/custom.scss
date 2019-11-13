@@ -71,6 +71,7 @@ a {
 
     tr{
       background-color: $clouds;
+      border: 1px $asbestos solid;
     }
 
     td{
@@ -175,6 +176,34 @@ nav{
     background-color: $silver;
     color: $clouds;
     border-color: $clouds;
+  }
+}
+
+.btn-like {
+  color: #fff;
+  background-color: $nephritis;
+  border-color: $nephritis;
+  margin: 1px;
+  display: inline;
+
+  &:hover {
+    color: $clouds;
+    background-color: $green-sea;
+    border-color: $green-sea;
+  }
+}
+
+.btn-unlike {
+  color: #fff;
+  background-color: $ruby;
+  border-color: $ruby;
+  margin: 1px;
+  display: inline;
+
+  &:hover {
+    color: $clouds;
+    background-color: $pomegranate;
+    border-color: $pomegranate;
   }
 }
 

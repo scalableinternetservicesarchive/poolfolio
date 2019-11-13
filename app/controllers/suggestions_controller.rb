@@ -11,11 +11,13 @@ class SuggestionsController < ApplicationController
   def upvote
     @suggestion = Suggestion.find(params[:id])
     @suggestion.upvote_from current_user
+    redirect_to current_user
   end
 
   def downvote
     @suggestion = Suggestion.find(params[:id])
     @suggestion.downvote_from current_user
+    redirect_to current_user
   end
 
 
