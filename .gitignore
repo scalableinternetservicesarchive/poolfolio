@@ -231,3 +231,6 @@ tmp/cache/bootsnap-compile-cache/*
 
 # Ignore local dev database files
 db/development.sqlite3
+
+#Ignore PEM RSA Key
+poolfolio.pem

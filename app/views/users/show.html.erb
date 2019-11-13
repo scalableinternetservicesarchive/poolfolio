@@ -65,7 +65,7 @@
                   </tr>
                 </thead>
                 <tbody class="suggestion-body">
-                  <% @suggestions.each do |suggestion|%>
+                  <% @suggestions.order(:cached_votes_score => :desc).each do |suggestion|%>
                   <tr >
                     <!--Absolute Value for quanity - if negative, display Sell, if positive, Buy  -->
                     <% @quant = suggestion.quantity %>
