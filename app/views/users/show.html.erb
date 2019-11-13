@@ -62,10 +62,11 @@
                     <th>Ticker</th>
                     <th>Quantity</th>
                     <th>Vote</th>
+                    <th>Total Votes</th>
                   </tr>
                 </thead>
                 <tbody class="suggestion-body">
-                  <% @suggestions.order(:cached_votes_score => :desc).each do |suggestion|%>
+                  <% @suggestions.order(:cached_votes_score => :desc, :created_at => :asc).each do |suggestion|%>
                   <tr >
                     <!--Absolute Value for quanity - if negative, display Sell, if positive, Buy  -->
                     <% @quant = suggestion.quantity %>
@@ -79,18 +80,17 @@
                     <td><%= suggestion.ticker %></td>
                     <td><%= (@quant).abs %></td>
                     <td>
-                      <%= link_to like_suggestion_path(suggestion), method: :put do %>
-                        Like <%= suggestion.get_upvotes.size %>
-                      <% end %>
-                      <%= link_to unlike_suggestion_path(suggestion), method: :put do %>
-                        Unlike <%= suggestion.get_downvotes.size %>
-                      <% end %>
+                      <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like", method: :put do %>Like<% end %>
+                      <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>
+
                     </td>
+                    <td><%= (suggestion.get_upvotes.size) - (suggestion.get_downvotes.size ) %></td>
                   </tr>
                   <% end %>
                 </tbody>
                 </table>
             </div>
+            *Sorted by: Total Votes, Creation Date*
         </div>
 
         <div class="col-4 bg-danger m-2 border border-secondary rounded">
