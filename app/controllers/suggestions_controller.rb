@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy]
+  before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /suggestions
   # GET /suggestions.json
@@ -9,37 +9,53 @@ class SuggestionsController < ApplicationController
 
   #Voting - acts_as_votable: https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
   def upvote
-    @suggestion = Suggestion.find(params[:id])
     @suggestion.upvote_from current_user
+    if @suggestion.weighted_score > 10
+      @suggestion.execute
+    end
     redirect_to current_user
   end
 
   def downvote
-    @suggestion = Suggestion.find(params[:id])
     @suggestion.downvote_from current_user
     redirect_to current_user
   end
 
-
+  # only called by the upvote method above
   def execute
     @team = Team.find(@suggestion.team_id)
     @stock = Stock.find_by(ticker: @suggestion.ticker)
 
-    ## should limiting @suggestion.quantity to ensure @holding.quantity >= 0 after selling and team has enough balance when purchasing.
-
-    # 1. update holdings table
+    ### 1. update teams table
+    
+    actual_quantity = @suggestion.quantity
+    if @suggestion.quantity + @holding.quantity < 0
+      # if quantity to sell is too large we just sell all that we own.
+      actual_quantity = - @holding.quantity
+    end
+    
+    if actual_quantity > 0 && @team.balance - @stock.price * actual_quantity < 0
+      # if team doesn't have enough balance to buy 
+      # render error messages and abort the execution
+    end
+    
+    @team.update_attribute(:value, @team.value + @stock.price * actual_quantity)
+    @team.update_attribute(:balance, @team.balance - @stock.price * actual_quantity)
+    
+    ### 2. update holdings table
     @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
     if @holding != nil
-      @holding.update_attribute(quantity, @holding.quantity + @suggestion.quantity)
-      if @holding.quantity <= 0
+      @holding.update_attribute(:quantity, @holding.quantity + actual_quantity)
+      if @holding.quantity == 0
         @holding.destroy
       end
     else
-      @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
+      # assume that we can't sell non-existing stock holding
+      @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: actual_quantity)
     end
-
-    # 2. update teams table
-    @team.update(value: @team.value + @stock.price * @suggestion.quantity, balance: @team.balance - @stock.price * @suggestion.quantity)
+    
+    # if all the above operations have been successfully executed 
+    @suggestion.destroy
   end
 
 
