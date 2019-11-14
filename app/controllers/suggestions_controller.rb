@@ -23,42 +23,34 @@ class SuggestionsController < ApplicationController
 
   # only called by the upvote method above
   def execute
-    @team = Team.find(@suggestion.team_id)
-    @stock = Stock.find_by(ticker: @suggestion.ticker)
-
-    ### 1. update teams table
     
-    actual_quantity = @suggestion.quantity
-    if @suggestion.quantity + @holding.quantity < 0
-      # if quantity to sell is too large we just sell all that we own.
-      actual_quantity = - @holding.quantity
-    end
-    
-    if actual_quantity > 0 && @team.balance - @stock.price * actual_quantity < 0
-      # if team doesn't have enough balance to buy 
-      # render error messages and abort the execution
-    end
-    
-    @team.update_attribute(:value, @team.value + @stock.price * actual_quantity)
-    @team.update_attribute(:balance, @team.balance - @stock.price * actual_quantity)
-    
-    ### 2. update holdings table
-    @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
-    if @holding != nil
-      @holding.update_attribute(:quantity, @holding.quantity + actual_quantity)
-      if @holding.quantity == 0
-        @holding.destroy
+    if @suggestion.quantity < 0
+      # sell 
+      @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
+      if @holding != nil
+        @holding.update(:quantity, @holding.quantity + @suggestion.quantity)
+        @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
+        @team.update(:value, @team.value + @stock.price * @suggestion.quantity)        
       end
+    
     else
-      # assume that we can't sell non-existing stock holding
-      @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: actual_quantity)
+      # buy
+      @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
+      @team.update(:value, @team.value + @stock.price * @suggestion.quantity)
+      
+      @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
+      if @holding != nil
+        @holding.update(:quantity, @holding.quantity + @suggestion.quantity)
+      else
+        @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
+      end
     end
     
-    # if all the above operations have been successfully executed 
+    # if the above operations have been successfully executed or the holding to sell doesn't exist 
     @suggestion.destroy
+    
   end
-
-
+  
 
   # GET /suggestions/1
   # GET /suggestions/1.json
