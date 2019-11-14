@@ -28,14 +28,20 @@ class SuggestionsController < ApplicationController
       # sell 
       @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
       if @holding != nil
-        @holding.update(:quantity, @holding.quantity + @suggestion.quantity)
+        res = @holding.update(:quantity, @holding.quantity + @suggestion.quantity)
+        if res == false
+          redirect_to @suggestion, alert: "Invalid quantity." and return
+        end
         @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
         @team.update(:value, @team.value + @stock.price * @suggestion.quantity)        
       end
     
     else
       # buy
-      @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
+      res = @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
+      if res == false
+        redirect_to @suggestion, alert: "Insufficient Balance." and return
+      end
       @team.update(:value, @team.value + @stock.price * @suggestion.quantity)
       
       @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
@@ -46,7 +52,8 @@ class SuggestionsController < ApplicationController
       end
     end
     
-    # if the above operations have been successfully executed or the holding to sell doesn't exist 
+    # if the above operations have been successfully executed or the holding to sell doesn't exist
+    redirect_to current_user, notice: 'Suggestion was successfully executed.'
     @suggestion.destroy
     
   end
