@@ -4,5 +4,4 @@ class Team < ApplicationRecord
   has_many  :holdings
   
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
-  validates :value, numericality: { greater_than_or_equal_to: 0 }
 end
