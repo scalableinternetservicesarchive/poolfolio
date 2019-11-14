@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_11_13_224442) do
-=======
-ActiveRecord::Schema.define(version: 2019_11_13_221554) do
->>>>>>> 74fb10e8df0eb99a7df19fd4956c2293f8dd2ad3
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -22,7 +18,14 @@ ActiveRecord::Schema.define(version: 2019_11_13_221554) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "stock_id"
     t.integer "team_id"
-    t.index ["team_id"], name: "index_holdings_on_team_id"
+    t.index ["team_id"], name: "index_Holdings_on_team_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "portfolio_name"
+    t.float "portfolio_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stocks", force: :cascade do |t|
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_221554) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
-    t.index ["ticker"], name: "index_stocks_on_ticker", unique: true
+    t.index ["ticker"], name: "index_Stocks_on_ticker", unique: true
   end
 
   create_table "suggestions", force: :cascade do |t|
