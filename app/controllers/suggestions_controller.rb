@@ -10,9 +10,6 @@ class SuggestionsController < ApplicationController
   #Voting - acts_as_votable: https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
   def upvote
     @suggestion.upvote_from current_user
-    if @suggestion.weighted_score > 10
-      @suggestion.execute
-    end
     redirect_to current_user
   end
 

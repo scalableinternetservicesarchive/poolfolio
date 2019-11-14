@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   #Voting - https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
   resources :suggestions do
+    get 'execute', on: :member
     member do
         put "like" => "suggestions#upvote"
         put "unlike" => "suggestions#downvote"

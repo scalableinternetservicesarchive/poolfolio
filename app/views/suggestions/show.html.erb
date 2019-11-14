@@ -7,3 +7,7 @@
 
 <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
 <%= link_to 'Back', suggestions_path %>
+
+<% if @suggestion.weighted_score > 10 %>
+  <%= link_to 'Execute', execute_suggestion_path(@suggestion) %>
+<% end %>
