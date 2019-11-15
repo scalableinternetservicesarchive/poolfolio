@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :execute]
   before_action :prepare_team
 
   def prepare_team

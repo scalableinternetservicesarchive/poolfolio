@@ -95,6 +95,10 @@
                       <% else %>
                         <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>
                       <% end %>
+                      
+                      <% if suggestion.weighted_score > @team.users.count / 2 %>
+                        <%= link_to 'Execute', execute_suggestion_path(suggestion) %>
+                      <% end %>
 
                     </td>
                     <td><%= suggestion.weighted_score %></td>
