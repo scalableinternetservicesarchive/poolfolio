@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, :check_user
+
   def show
     @user = User.find(params[:id])
-    @teams = Team.all.order("created_at DESC")
     @team = Team.find(@user.team_id)
+    @teams = Team.all.order("created_at DESC")
     @stocks = Array.new
     Holding.where(team_id: @user.team_id).each do |holding|
       stock = Stock.find(holding.stock_id)
@@ -15,16 +17,14 @@ class UsersController < ApplicationController
       })
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
-
-    @suggestions = Suggestion.where(team_id: @user.team_id)
+    @suggestions = @team.suggestions.paginate(page: params[:page], :per_page => 8)
+    # @suggestions = Suggestion.where(team_id: @user.team_id)
 
   end
 
   def index
     @users = User.all
   end
-
-  before_action :authenticate_user!, :check_user
 
   private
 

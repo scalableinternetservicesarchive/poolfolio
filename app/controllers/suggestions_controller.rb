@@ -1,10 +1,9 @@
 class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :prepare_team
 
-  # GET /suggestions
-  # GET /suggestions.json
-  def index
-    @suggestions = Suggestion.all
+  def prepare_team
+    @team = Team.find(current_user.team_id)
   end
 
   #Voting - acts_as_votable: https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
@@ -54,26 +53,17 @@ class SuggestionsController < ApplicationController
     @suggestion.destroy
     
   end
-  
-
-  # GET /suggestions/1
-  # GET /suggestions/1.json
-  def show
-  end
 
   # GET /suggestions/new
   def new
     @suggestion = Suggestion.new
   end
 
-  # GET /suggestions/1/edit
-  def edit
-  end
-
   # POST /suggestions
   # POST /suggestions.json
   def create
-    @suggestion = Suggestion.new(suggestion_params)
+    @suggestion = @team.suggestions.build(suggestion_params)
+    @suggestion.user_id = current_user.id
 
     respond_to do |format|
       if @suggestion.save
@@ -81,20 +71,6 @@ class SuggestionsController < ApplicationController
         format.json { render :show, status: :created, location: @suggestion }
       else
         format.html { render :new }
-        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /suggestions/1
-  # PATCH/PUT /suggestions/1.json
-  def update
-    respond_to do |format|
-      if @suggestion.update(suggestion_params)
-        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @suggestion }
-      else
-        format.html { render :edit }
         format.json { render json: @suggestion.errors, status: :unprocessable_entity }
       end
     end
@@ -118,6 +94,6 @@ class SuggestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suggestion_params
-      params.require(:suggestion).permit(:quantity)
+      params.require(:suggestion).permit(:quantity, :team_id, :user_id, :ticker)
     end
 end

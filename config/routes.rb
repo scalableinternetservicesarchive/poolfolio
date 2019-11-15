@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
 
+  # Users
   devise_for :users, controllers: {
       sessions: "users/sessions",
       registrations: "users/registrations"
     }
 
-  #Users
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
 
-  resources :stocks, :holdings, :suggestions, :users
-
-  #Teams
+  # Teams
   resources :teams do
     get 'join', on: :member
   end
 
-  #Voting - https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
+  resources :stocks, :holdings, :suggestions, :users
+
+  # Voting - https://www.cryptextechnologies.com/blogs/voting-functionality-in-ruby-on-rails-app
   resources :suggestions do
     get 'execute', on: :member
     member do
