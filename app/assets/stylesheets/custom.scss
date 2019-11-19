@@ -26,6 +26,19 @@
 
 /* universal */
 
+#paginate{
+  a{
+    font-weight: bold !important;
+    color: white !important;
+    margin-left: 1em;
+  }
+}
+
+.paginate{
+  margin: 1em auto;
+  text-align: center;
+}
+
 body {
   background-color: $lynx-white;
   color: #333;
@@ -190,6 +203,20 @@ nav{
     color: $clouds;
     background-color: $green-sea;
     border-color: $green-sea;
+  }
+}
+
+.btn-execute {
+  color: #fff;
+  background-color: $orange;
+  border-color: $orange;
+  margin: 1px;
+  display: inline;
+
+  &:hover {
+    color: $clouds;
+    background-color: $pumkin;
+    border-color: $pumkin;
   }
 }
 
