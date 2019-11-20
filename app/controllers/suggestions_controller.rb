@@ -19,30 +19,38 @@ class SuggestionsController < ApplicationController
 
   # only called by the upvote method above
   def execute
+    # stock existence should be validated at creation
+    @stock = Stock.find_by(ticker: @suggestion.ticker)
     
     if @suggestion.quantity < 0
       # sell 
       @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
       if @holding != nil
-        res = @holding.update(:quantity, @holding.quantity + @suggestion.quantity)
+        income = @stock.price * @suggestion.quantity
+        res = @holding.update(quantity: @holding.quantity + @suggestion.quantity, 
+                              balance: @team.balance - income,
+                              value: @team.value + income
+                              )
         if res == false
           redirect_to @suggestion, alert: "Invalid quantity." and return
         end
-        @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
-        @team.update(:value, @team.value + @stock.price * @suggestion.quantity)        
+      else
+        redirect_to current_user, notice: 'No such holding.' and return
       end
     
     else
       # buy
-      res = @team.update(:balance, @team.balance - @stock.price * @suggestion.quantity)
+      # to_i convert nil to 0, @stock.price maybe nil
+      cost = @stock.price.to_i * @suggestion.quantity
+      # @team.value is nil by default
+      res = @team.update(balance: @team.balance - cost, value: @team.value.to_i + cost)
       if res == false
         redirect_to @suggestion, alert: "Insufficient Balance." and return
       end
-      @team.update(:value, @team.value + @stock.price * @suggestion.quantity)
       
       @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
       if @holding != nil
-        @holding.update(:quantity, @holding.quantity + @suggestion.quantity)
+        @holding.update(quantity: @holding.quantity + @suggestion.quantity)
       else
         @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
       end

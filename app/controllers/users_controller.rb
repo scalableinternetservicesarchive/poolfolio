@@ -12,8 +12,8 @@ class UsersController < ApplicationController
       @stocks.push({
         "quantity" => holding.quantity,
         "ticker" => stock.ticker,
-        "price" => stock.price,
-        "total" => stock.price * holding.quantity
+        "price" => stock.price.to_i,
+        "total" => stock.price.to_i * holding.quantity
       })
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
