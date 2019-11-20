@@ -1,22 +1,31 @@
 <% provide(:title, @team.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="team_info">
-      <h1>
-        <%= @team.name %>
-      </h1>
-      <h2>
-        <%= @team.value %>
-      </h2>
-      <h3>
-        <% @users.each do |user| %>
-            <li>
-              <%= user.firstname %> <%= user.lastname %>: <%=user.email %>
-            </li>
-        <% end %>
-      </h3>
-    </section>
-  </aside>
+
+<div class="center bd-highlight mt-5 pl-3 pr-3">
+  <div class="container center">
+    <div class="row">
+      <div class="col user-hub m-2 border border-secondary rounded">
+        <h4 class="font-weight-bold mt-2">Team Info</h4>
+        <h6>
+          <b>Team Name: </b><%= @team.name %>
+          <b>Balance: </b><%= number_to_currency(@team.balance) %>
+          <b>Value: </b><%= number_to_currency(@team.value) %>
+        </h6>
+        <div class="d-flex flex-row justify-content-between">
+          <div class='pt-2'><u>Username</u></div>
+          <div class='pt-2'><u>Email</u></div>
+        </div>
+        <h6>
+          <% @users.each do |user| %>
+              <div class="d-flex flex-row justify-content-between">
+                <div class=""><%= user.firstname %> <%= user.lastname %></div>
+                <div class=""><%=user.email %></div>
+              </div>
+          <% end %>
+        </h6>
+      </div>
+    </div>
+
+  </div> 
 </div>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
