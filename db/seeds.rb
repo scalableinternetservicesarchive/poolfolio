@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Default team which every new user joins
-first_team = Team.create()
+first_team = Team.create(name: "The Quants")
 first_user = User.create(firstname: "Jack", lastname: "Zhang", email: "jz@ucla.edu", password: "qwerty", password_confirmation: "qwerty", team_id: 1)
 second_user = User.create(firstname: "Pierson", lastname: "Marks", email: "pm@ucla.edu", password: "qwerty", password_confirmation: "qwerty", team_id: 1)
 third_user = User.create(firstname: "Hanyo", lastname: "Liu", email: "hl@ucla.edu", password: "qwerty", password_confirmation: "qwerty", team_id: 1)
