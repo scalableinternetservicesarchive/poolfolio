@@ -1,45 +1,46 @@
 <% provide(:title, "Teams") %>
 
-<h1>Teams</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Value</th>
-      <th>Balance</th>
-      <th colspan="8"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-  <% if current_user.team_id == -1 %>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.value %></td>
-        <td><%= team.balance %></td>
-        <td><%= link_to 'Join', join_team_path(team) %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  <% else %>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.value %></td>
-        <td><%= team.balance %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>  
-  <% end %>
-  </tbody>
-</table>
+<div class="container" >
+  <div class="row mt-2" style="height: 40em">
+    <div class="col mt-2 center">
+      <div class="p-2 bg-info d-flex flex-column" style="height: 40em" >
+        <h4>Teams</h4>
+        <table class="fixed_header">
+          <thead class="bg-warning">
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          
+          <tbody class="team-body">
+            <% @teams.each do |team| %>
+            <tr>
+              <td><%= team.name %></td>
+              <td><%= team.value %></td>
+              <td><%= team.balance %></td>
+              <td>
+                <%= link_to 'Show', team, class: "btn btn-sm btn-like" %>
+                <%= link_to 'Edit', edit_team_path(team), class: "btn btn-sm btn-like" %>
+                <%= link_to 'Destroy', team, class: "btn btn-sm btn-like", method: :delete, data: { confirm: 'Are you sure?' } %>
+              
+                <% if current_user.team_id == 0 %>
+                  <%= link_to 'Join', join_team_path(team), class: "btn btn-sm btn-like" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-<br>
+<%= link_to 'New Team', new_team_path, class: "btn btn-sm btn-unlike" %>
 
-<%= link_to 'New Team', new_team_path %>
+
