@@ -1,46 +1,45 @@
 <% provide(:title, "Teams") %>
 
-
-
 <div class="container" >
   <div class="row mt-2" style="height: 40em">
     <div class="col mt-2 center">
-      <div class="p-2 bg-info d-flex flex-column" style="height: 40em" >
+      <div class="p-2 bg-info d-flex flex-column" style="height: 40em; position:relative" >
         <h4>Teams</h4>
         <table class="fixed_header">
           <thead class="bg-warning">
             <tr>
               <th>Name</th>
-              <th>Value</th>
-              <th>Balance</th>
+              <th>Portfolio Value</th>
             </tr>
           </thead>
           
           <tbody class="team-body">
             <% @teams.each do |team| %>
             <tr>
-              <td><%= team.name %></td>
-              <td><%= team.value %></td>
-              <td><%= team.balance %></td>
-              <td>
-                <%= link_to 'Show', team, class: "btn btn-sm btn-like" %>
-                <%= link_to 'Edit', edit_team_path(team), class: "btn btn-sm btn-like" %>
-                <%= link_to 'Destroy', team, class: "btn btn-sm btn-like", method: :delete, data: { confirm: 'Are you sure?' } %>
-              
-                <% if current_user.team_id == 0 %>
+              <% if team == Team.find(current_user.team_id) %>
+                <td class="team-row"><%= team.name %></td>
+                <td class="team-row"><%= team.value + team.balance %></td>
+                <td>
+                  <%= link_to 'Show', team, class: "btn btn-sm btn-like" %>
+                  <%= link_to 'Edit', edit_team_path(team), class: "btn btn-sm btn-like" %>
+                </td>
+              <% else %>
+                <td><%= team.name %></td>
+                <td><%= team.value + team.balance %></td>
+                <td>
+                  <%= link_to 'Show', team, class: "btn btn-sm btn-like" %>
                   <%= link_to 'Join', join_team_path(team), class: "btn btn-sm btn-like" %>
-                <% end %>
-              </td>
+                </td>
+              <% end %>
             </tr>
             <% end %>
-            
           </tbody>
         </table>
+        <div style="position:absolute; bottom:14px; right:10px">
+          <%= link_to 'New Team', new_team_path, class: "btn btn-sm btn-unlike" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= link_to 'New Team', new_team_path, class: "btn btn-sm btn-unlike" %>
-
 

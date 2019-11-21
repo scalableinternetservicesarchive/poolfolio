@@ -6,8 +6,8 @@
   <% if !user_signed_in? %>
     <%= link_to "GET STARTED", new_user_registration_path, class: "btn btn-flat", id:"home-signup" %>
   <% else %>
-    <%= link_to "Create a Team!", new_team_path, class: "btn btn-flat", id:"team-create" %>
-    <%= link_to "YOUR PORTFOLIO", current_user, class: "btn btn-flat", id:"home-signup" %>
+    <%= link_to "Join/create a Team", teams_path, class: "btn btn-flat", id:"team-create" %>
+    <%= link_to "View Portfolio", current_user, class: "btn btn-flat", id:"home-signup" %>
   <% end %>
   <!-- <p id="tagline-description">Create teams to pool together funds and vote on investment suggestions in an attempt to collaboratively grow your portfolio.</p> -->
 </div>

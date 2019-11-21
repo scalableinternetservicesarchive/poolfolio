@@ -7,13 +7,15 @@ class TeamsController < ApplicationController
     @teams = Team.all.order("created_at DESC")
   end
 
-
   def join
+    # User.where(team_id: @user.team_id)
+    # Everytime a user joins a new team, the current team loses $1000 and the new team gains $1000
+    current_team = Team.find(current_user.team_id)
+    current_team.update_attribute(:balance, current_team.balance -= 1000)
     current_user.update_attribute(:team_id, @team.id)
-    @team.update_attribute(:balance, @team.balance += 50)
+    @team.update_attribute(:balance, @team.balance += 1000)
     redirect_to current_user
   end
-
 
   # GET /teams/1
   # GET /teams/1.json
@@ -25,7 +27,6 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
   end
-
 
   # POST /teams
   # POST /teams.json
@@ -72,7 +73,6 @@ class TeamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id]) #This doesn't make sense. Why are we searching for a team that matches the User id?
-    
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
