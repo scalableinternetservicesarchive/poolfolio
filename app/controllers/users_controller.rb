@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
     @suggestions = @team.suggestions.paginate(page: params[:page], :per_page => 8)
-    # @suggestions = Suggestion.where(team_id: @user.team_id)
 
   end
 
@@ -31,7 +30,6 @@ class UsersController < ApplicationController
     def check_user
       if current_user != User.find(params[:id])
         redirect_to login_path, alert: "Please login to access your homepage."
-
       end
     end
 

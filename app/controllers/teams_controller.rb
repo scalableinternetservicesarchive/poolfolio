@@ -8,12 +8,13 @@ class TeamsController < ApplicationController
   end
 
   def join
-    # User.where(team_id: @user.team_id)
     # Everytime a user joins a new team, the current team loses $1000 and the new team gains $1000
     current_team = Team.find(current_user.team_id)
     current_team.update_attribute(:balance, current_team.balance -= 1000)
-    current_user.update_attribute(:team_id, @team.id)
     @team.update_attribute(:balance, @team.balance += 1000)
+
+    # Switch teams
+    current_user.update_attribute(:team_id, @team.id)
     redirect_to current_user
   end
 
@@ -32,6 +33,11 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    # Add 1000 to the newly created team and subtract 1000 from the team that the user left
+    current_team = Team.find(current_user.team_id)
+    current_team.update_attribute(:balance, current_team.balance -= 1000)
+    @team.update_attribute(:balance, @team.balance += 1000)
+
 
     respond_to do |format|
       if @team.save

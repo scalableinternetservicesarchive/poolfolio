@@ -10,6 +10,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
+    current_team = Team.find(current_user.team_id)
+    current_team.update_attribute(:balance, current_team.balance += 1000)
     current_user
   end
 
