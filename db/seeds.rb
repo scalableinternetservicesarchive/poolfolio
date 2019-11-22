@@ -13,7 +13,7 @@ second_user = User.create(firstname: "Pierson", lastname: "Marks", email: "pm@uc
 third_user = User.create(firstname: "Hanyo", lastname: "Liu", email: "hl@ucla.edu", password: "qwerty", password_confirmation: "qwerty", team_id: 1)
 fourth_user = User.create(firstname: "Nikita", lastname: "Luyanenko", email: "nl@ucla.edu", password: "qwerty", password_confirmation: "qwerty", team_id: 1)
 
-# Stocks
+# Stocks using Alpaca's Market API
 res = RestClient.get("https://paper-api.alpaca.markets/v2/assets", :"APCA-API-KEY-ID" => "PKI9MD0KBM4B957XF9IJ", :"APCA-API-SECRET-KEY" => "DxnPxsIzEZDwFcgfnlHoSKhkKFsfEgsHFkggmcQx")
 res = JSON.parse(res)
 for stock in res do

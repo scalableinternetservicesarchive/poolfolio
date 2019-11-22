@@ -35,8 +35,11 @@ gem 'bootstrap-will_paginate', '1.0.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-#Devise Authentication
+# Devise Authentication
 gem 'devise'
+
+# Scheduled automated tasks (used for stock updates)
+gem 'whenever', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
