@@ -19,9 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :environment, "development" # Since default environment is production and production does not use sqlite3
+set :environment, ENV["RAILS_ENV"] # Needed since default environment is always production
 set :output, "log/stock_updates.log"
 
+# Alpha Vantage's fre API key is capped at 5 requests per minute, so we run every minute to increase throuhgput
 every 1.minute do
     rake "update:update_stocks"
 end
