@@ -30,6 +30,7 @@ namespace :update do
           # 5 stocks have been updated, so start skipping stock updates and just proceed to updating team values with the 5 newly updated stocks
           if res.key?("Note") == true
             api_limit_reached = true
+            puts "#{Time.now} - Updated " + stock.ticker + "'s stock price to: " + res_price
           else
             res_price = res["Global Quote"]["05. price"]
 

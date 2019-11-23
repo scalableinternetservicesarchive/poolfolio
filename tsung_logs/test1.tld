@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/usr/local/share/tsung/tsung-1.0.dtd" [] >
+<tsung loglevel="notice">
+    <!-- Client side setup -->
+    <clients>
+        <client host="localhost" use_controller_vm="true" maxusers='15000'/>
+    </clients>
+
+    <!-- Server side setup -->
+    <servers>
+        <server host="poolfolio.uzgjd2dkms.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+    </servers>
+
+
+    <load>
+        <arrivalphase phase="1" duration="30" unit="second">
+            <users arrivalrate="1" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="2" duration="30" unit="second">
+            <users arrivalrate="2" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="3" duration="30" unit="second">
+            <users arrivalrate="4" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="4" duration="40" unit="second">
+            <users arrivalrate="8" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="5" duration="60" unit="second">
+            <users arrivalrate="16" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="6" duration="30" unit="second">
+            <users arrivalrate="32" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="7" duration="30" unit="second">
+            <users arrivalrate="64" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="8" duration="30" unit="second">
+            <users arrivalrate="128" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="9" duration="30" unit="second">
+            <users arrivalrate="256" unit="second"></users>
+        </arrivalphase>
+        <arrivalphase phase="10" duration="30" unit="second">
+            <users arrivalrate="512" unit="second"></users>
+        </arrivalphase>
+    </load>
+
+    <options>
+        <!-- Set connection timeout to 2 seconds -->
+        <option name="global_ack_timeout" value="2000"></option>
+
+        <option type="ts_http" name="user_agent">
+            <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511
+                Firefox/1.0.4
+            </user_agent>
+        </option>
+    </options>
+
+    <sessions>
+        <session name="http-example" probability="100" type="ts_http">
+
+            <!-- start out at the dashboard. -->
+            <request>
+                <http url='/' version='1.1' method='GET'></http>
+            </request>
+
+            <!-- wait for up to 2 seconds, user is looking at posts -->
+            <thinktime value="1" random="true"></thinktime>
+
+            <request>
+                <http url='/users/sign_in' version='1.1' method='GET'></http>
+            </request>
+            <!-- works till here -->
+
+            <thinktime value="1" random="true"></thinktime>
+            <!-- go to to sign_up page and pull authenticity_token-->
+            <request>
+                <dyn_variable name="authenticity_token"></dyn_variable>
+                <http url='/users/sign_up' version='1.1' method='GET'>
+                    <http_header name="Cookie" value="%%_cookie%%"/>
+                </http>
+            </request>
+
+            <setdynvars sourcetype="eval"
+                        code="fun({Pid,DynVars})->
+				{ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),
+				http_uri:encode(Val) end.">
+                <var name="encoded_authenticity_token"/>
+            </setdynvars>
+
+            <!-- wait for up to 2 seconds, user is filling out new user form -->
+            <thinktime value="2" random="true"></thinktime>
+
+            <!-- make a user with randome strings-->
+            <setdynvars sourcetype="random_string" length="7">
+                <var name="rndstring"/>
+            </setdynvars>
+
+            <request subst="true">
+                <http url='/users' version='1.1'
+                      contents="authenticity_token=%%_encoded_authenticity_token%%&amp;user%5Bfirstname%5D=%%_rndstring%%&amp;user%5Blastname%5D=%%_rndstring%%&amp;user%5Bemail%5D=%%_rndstring%%@gmail.com&amp;user%5Bpassword%5D=%%_rndstring%%&amp;user%5Bpassword_confirmation%5D=%%_rndstring%%&amp;user%5Bteam_id%5D=-1&amp;commit=Sign+Up"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                    <!--                     <http_header name="Cookie" value="%%_cookie-session%%" />-->
+                </http>
+            </request>
+
+            <thinktime value="5" random="true"></thinktime>
+
+            <request>
+                <http url='/suggestions/new?' version='1.1' method='GET'></http>
+            </request>
+
+            <thinktime value="2" random="true"></thinktime>
+
+            <setdynvars sourcetype="random_string" length="7">
+                <var name="rndstring2"/>
+            </setdynvars>
+
+            <request subst="true">
+                <http url='/suggestions' version='1.1'
+                      contents="authenticity_token=%%_encoded_authenticity_token%%&amp;suggestion%5Bquantity%5D=500&amp;suggestion%5Bticker%5D=%%_rndstring2%%&amp;commit=Create+Suggestion"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                </http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <setdynvars sourcetype="random_string" length="7">
+                <var name="rndstring3"/>
+            </setdynvars>
+
+            <request subst="true">
+                <http url='/suggestions' version='1.1'
+                      contents="authenticity_token=%%_encoded_authenticity_token%%&amp;suggestion%5Bquantity%5D=500&amp;suggestion%5Bticker%5D=%%_rndstring3%%&amp;commit=Create+Suggestion"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                </http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <request subst="true">
+                <http url='/suggestions/1/like' version='1.1'
+                      contents="_method=put&amp;authenticity_token=%%_encoded_authenticity_token%%"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                </http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <request subst="true">
+                <http url='/suggestions/2/like' version='1.1'
+                      contents="_method=put&amp;authenticity_token=%%_encoded_authenticity_token%%"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                </http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <request subst="true">
+                <http url='/suggestions/2/unlike' version='1.1'
+                      contents="_method=put&amp;authenticity_token=%%_encoded_authenticity_token%%"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                </http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <request>
+                <http url='/teams' version='1.1' method='GET'></http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <request>
+                <http url='/teams/new' version='1.1' method='GET'></http>
+            </request>
+
+            <thinktime value="2" random="true"></thinktime>
+
+            <setdynvars sourcetype="random_string" length="7">
+                <var name="rndstring11"/>
+            </setdynvars>
+
+            <request subst="true">
+                <http url='/teams' version='1.1'
+                      contents="authenticity_token=%%_encoded_authenticity_token%%&amp;team%5Bname%5D=%%_rndstring%%&amp;commit=Create+Team"
+                      content_type='application/x-www-form-urlencoded' method='POST'>
+                </http>
+            </request>
+
+            <thinktime value="1" random="true"></thinktime>
+
+            <request>
+                <http url='/teams/-1/join' version='1.1' method='GET'></http>
+            </request>
+        </session>
+    </sessions>
+</tsung>
+        <!--sudo scp -r -i poolfolio.pem ec2-user@54.213.20.212:tsung_logs ./tsung_logs-->
+        <!--        rails console-->
+        <!--        @t = Team.new()-->
+        <!--        @t.team_id = -1-->
+        <!--        @t.save()-->
