@@ -23,8 +23,14 @@ class SuggestionsController < ApplicationController
     # stock existence should be validated at creation
     @stock = Stock.find_by(ticker: @suggestion.ticker)
     
+    # Everytime a new stock is bought/sold, buy it at the current price by calling the API, so that we don't buy using a stale price
+    res = RestClient.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + @stock.ticker + "&apikey=YNKAKVYRW2VHVAV1")
+    res = JSON.parse(res)
+    price = res["Global Quote"]["05. price"]
+    
     if @suggestion.quantity < 0
       # sell 
+
       @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
       if @holding != nil
         income = @stock.price * @suggestion.quantity
@@ -41,8 +47,9 @@ class SuggestionsController < ApplicationController
     
     else
       # buy
-      # to_i convert nil to 0, @stock.price maybe nil
-      cost = @stock.price.to_i * @suggestion.quantity
+      # to_i converts nil to 0, @stock.price may be nil
+
+      cost = price.to_i * @suggestion.quantity
       # @team.value is nil by default
       res = @team.update(balance: @team.balance - cost, value: @team.value.to_i + cost)
       if res == false
@@ -56,6 +63,11 @@ class SuggestionsController < ApplicationController
         @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
       end
     end
+
+    # Update stock with new price
+    @stock.price = price.to_i
+    @stock.save # "save" instead of "update_attribute", since the latter does not update the "updated_at" field
+    @stock.touch # "save" only updates "updated_at" field if changes were made, "touch" guarantees "updated_at" is updated
     
     # if the above operations have been successfully executed or the holding to sell doesn't exist
     redirect_to current_user, notice: 'Suggestion was successfully executed.'
