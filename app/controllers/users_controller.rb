@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token, only: [:create]
+  protect_from_forgery :except => :create
   before_action :authenticate_user!, :check_user
 
   def show
