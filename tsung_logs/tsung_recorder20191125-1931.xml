@@ -1,0 +1,67 @@
+<session name='rec20191125-1931' probability='100'  type='ts_http'>
+<request><http url='www.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='beacons.gcp.gvt2.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='play.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+
+<thinktime random='true' value='7'/>
+
+<request><http url='clients4.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+
+<thinktime random='true' value='48'/>
+
+<request><http url='www.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='fonts.gstatic.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='www.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='s2.googleusercontent.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='http://csi.gstatic.com/csi?v=3&amp;s=gapi_module&amp;action=gapi_iframes__googleapis_cli12&amp;it=mli.121,mei.8&amp;srt=6&amp;tbsrt=466&amp;tran=15&amp;e=abc_l0,abc_m0,abc_pgapi_iframes__googleapis_cli12,abc_u0&amp;rt=' version='1.1' method='GET'>
+  <http_header name='Accept' value='image/webp,image/apng,image/*,*/*;q=0.8' />
+  <http_header name='Accept-Encoding' value='gzip, deflate' />
+  <http_header name='Accept-Language' value='ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' /></http></request>
+<request><http url='s2.googleusercontent.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='www.facebook.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='static.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='scontent-lax3-1.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='facebook.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='static.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='scontent-lax3-1.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='facebook.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='scontent-lax3-2.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='static.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='scontent-lax3-2.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='video-lax3-2.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='video-lax3-1.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='video-lax3-2.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='video-lax3-1.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='clients1.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='d.joinhoney.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='clients1.google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='d.joinhoney.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='edge-chat.facebook.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='6-edge-chat.facebook.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='google.com:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='external-lax3-1.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='video-lax3-1.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+
+<thinktime random='true' value='3'/>
+
+<request><http url='pixel.facebook.com:443' version='1.1' method='CONNECT'></http></request>
+
+<thinktime random='true' value='122'/>
+
+<request><http url='static.xx.fbcdn.net:443' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+
+<thinktime random='true' value='2'/>
+
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+<request><http url='' version='1.1' method='CONNECT'></http></request>
+</session>
