@@ -1,11 +1,11 @@
-<% provide(:title, @user.firstname + " " + @user.lastname) %>
+<% provide(:title, current_user.firstname + " " + current_user.lastname) %>
 
 <div class="center bd-highlight mt-5 pl-3 pr-3">
   <div class="container-fluid center">
     <div class="row">
       <div class="col-2 center">
         <h6 class="font-weight-bold">
-        <%= link_to @user.firstname + "'s Homepage" , edit_user_registration_path %>
+        <%= link_to current_user.firstname + "'s Homepage" , edit_user_registration_path %>
         </h6>
         <p><%=
         if @team.name.blank?
@@ -82,13 +82,13 @@
                     <td><%= suggestion.ticker %></td>
                     <td><%= (quant).abs %></td>
                     <td>
-                      <% if @user.voted_up_on? suggestion %>
+                      <% if current_user.voted_up_on? suggestion %>
                         <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like disabled", method: :put do %>Like<% end %>
                       <% else %>
                         <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like", method: :put do %>Like<% end %>
                       <% end %>
 
-                      <% if @user.voted_down_on? suggestion %>
+                      <% if current_user.voted_down_on? suggestion %>
                         <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike disabled", method: :put do %>Unlike<% end %>
                       <% else %>
                         <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>

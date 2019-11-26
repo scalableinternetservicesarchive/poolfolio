@@ -2,7 +2,7 @@
 # stocks able to be refreshed every period. Thus, the number of unique stocks being held by any team
 # must be less than or equal to 25. Increasing update_period results in a slower refresh rate but a higher
 # stock update capacity. 
-update_period = 5 # (in minutes)
+update_period = 30 # (in minutes)
 
 namespace :update do
 
@@ -17,6 +17,30 @@ namespace :update do
     for team in teams do
       puts "--------------------------> Updating " + team.name + "'s stocks..."
 
+      suggestions = Suggestion.where(team_id: team.id)
+      for suggestion in suggestions do
+        stock = Stock.where(ticker: suggestion.ticker)[0]
+        if api_limit_reached == false && (stock.updated_at < update_period.minutes.ago || stock.price == nil)
+          # Obtain price of stock using AlphaVantage API
+          res = RestClient.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + stock.ticker + "&apikey=YNKAKVYRW2VHVAV1")
+          res = JSON.parse(res)
+          
+          # 5 stocks have been updated, so start skipping stock updates and just proceed to updating team values with the 5 newly updated stocks
+          if res.key?("Note") == true
+            api_limit_reached = true
+          else
+            res_price = res["Global Quote"]["05. price"]
+
+            # Update stock with new price
+            stock.price = res_price.to_i
+            stock.save # "save" instead of "update_attribute", since the latter does not update the "updated_at" field
+            stock.touch # "save" only updates "updated_at" field if changes were made, "touch" guarantees "updated_at" is updated
+
+            puts "#{Time.now} - Updated " + stock.ticker + "'s stock price to: " + res_price
+          end
+        end
+      end
+
       holdings = Holding.where(team_id: team.id)
       new_team_value = 0 # For adding up the team's new value from each holding
       for holding in holdings do
@@ -30,7 +54,6 @@ namespace :update do
           # 5 stocks have been updated, so start skipping stock updates and just proceed to updating team values with the 5 newly updated stocks
           if res.key?("Note") == true
             api_limit_reached = true
-            puts "#{Time.now} - Updated " + stock.ticker + "'s stock price to: " + res_price
           else
             res_price = res["Global Quote"]["05. price"]
 
