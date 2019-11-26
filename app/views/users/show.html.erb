@@ -46,15 +46,15 @@
 
               <% @teams.each do |team|%>
                 <div class="d-flex flex-row justify-content-between">
-                  <div class=""><%= team.name %></div>
+                  <div class=""><%= link_to team_path(team.id), method: :get do %><%= team.name =%><% end %></div>
                   <div class=""><%= number_to_currency(team.value + team.balance) %></div>
                 </div>
               <% end %>
 
         </div>
-        <div class="col mt-2 ">
-            <div class="p-2 bg-info d-flex flex-column" style="height: 40em" >
-              <h4>Suggestions</h4>
+        <div class="col mt-2">
+            <div class="p-2 bg-info d-flex flex-column rounded" style="height: 40em" >
+              <h4 class="font-weight-bold mt-1">Suggestions</h4>
               <table class="fixed_header">
                 <thead class="bg-warning">
                   <tr>
@@ -94,8 +94,6 @@
                         <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>
                       <% end %>
 
-
-
                     </td>
                     <td>
                       <% if suggestion.weighted_score > @team.users.count / 2 %>
@@ -116,7 +114,7 @@
             *Sorted by: Total Votes, Creation Date*
         </div>
 
-        <div class="col-4 bg-danger m-2 border border-secondary rounded">
+        <div class="col-4 user-hub m-2 border border-secondary rounded">
           <h5 class="font-weight-bold mt-1">Holdings</h5>
           <% if @teams.blank? %>
             <div class="d-flex flex-row justify-content-between">
@@ -151,15 +149,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="d-flex bg-warning">
-      <div class="p-2 bg-info">Flex item 1</div>
-      <div class="p-2 flex-column">
-        <div class="p-2 m-auto bg-primary">Flex item 1</div>
-        <div class="p-2">Flex item 1</div>
-      </div>
-      <div class="p-2 ml-auto bg-danger">Flex item 3</div>
-    </div> -->
   </div>
 </div>
 <%# <%= link_to "Edit your profile.", edit_user_registration_path %>
