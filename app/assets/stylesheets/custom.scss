@@ -28,9 +28,14 @@
 
 #paginate{
   a{
-    font-weight: bold !important;
     color: white !important;
-    margin-left: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+
+    &:hover{
+      color: $emerald !important;
+      text-decoration: none;
+    }
   }
 }
 
@@ -51,7 +56,7 @@ body {
 }
 
 .user-hub {
-  background-color: $river;
+  background-color: $lynx-white;
 }
 
 section {

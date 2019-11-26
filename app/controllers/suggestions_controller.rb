@@ -1,5 +1,4 @@
 class SuggestionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :set_suggestion, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :execute]
   before_action :prepare_team
 
@@ -22,22 +21,29 @@ class SuggestionsController < ApplicationController
   def execute
     # stock existence should be validated at creation
     @stock = Stock.find_by(ticker: @suggestion.ticker)
+    price = nil
     
-    # Everytime a new stock is bought/sold, buy it at the current price by calling the API, so that we don't buy using a stale price
-    res = RestClient.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + @stock.ticker + "&apikey=YNKAKVYRW2VHVAV1")
-    res = JSON.parse(res)
-    price = res["Global Quote"]["05. price"]
+    # If the stock price is nil (the stock isn't currently active)
+    if @stock.price == nil
+      res = RestClient.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + @stock.ticker + "&apikey=YNKAKVYRW2VHVAV1")
+      res = JSON.parse(res)
+      price = res["Global Quote"]["05. price"]
+    else
+      price = @stock.price
+    end
     
     if @suggestion.quantity < 0
       # sell 
 
       @holding = Holding.find_by(team_id: @team.id, stock_id: @stock.id)
       if @holding != nil
-        income = @stock.price * @suggestion.quantity
-        res = @holding.update(quantity: @holding.quantity + @suggestion.quantity, 
-                              balance: @team.balance - income,
-                              value: @team.value + income
-                              )
+        quantity = [-@suggestion.quantity, @holding.quantity].min
+        income = price * quantity
+        res = @holding.update(quantity: @holding.quantity - quantity)
+        if @holding.quantity == 0
+          @holding.destroy
+        end
+        @team.update(balance: @team.balance + income, value: @team.value - income)
         if res == false
           redirect_to @suggestion, alert: "Invalid quantity." and return
         end
