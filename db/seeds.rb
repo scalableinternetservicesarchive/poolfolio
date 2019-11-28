@@ -44,7 +44,7 @@ if Team.all.size == 0
     name = SecureRandom.alphanumeric
     Team.create(name: name, balance: rand(400...5000))
     i2 = 1
-    while i2 < 100 do
+    while i2 < 10 do
       name2 = SecureRandom.alphanumeric
       Suggestion.create(quantity: rand(400...5000), team_id: i, user_id: 1, ticker: name2)
       i2 += 1
