@@ -32,9 +32,14 @@ if Team.all.size == 0
   five_suggestion3 = Suggestion.create(quantity: 500, team_id: 3, user_id: 3, ticker: 'UBER')
   five_suggestion4 = Suggestion.create(quantity: 500, team_id: 4, user_id: 4, ticker: 'UBER')
   five_suggestion5 = Suggestion.create(quantity: 500, team_id: 5, user_id: 5, ticker: 'UBER')
-  i = 1
   charset = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}
-  while i < 1000 do
+  i = 1
+  while i < 100 do
+    newname = SecureRandom.alphanumeric
+    first_user = User.create(firstname: newname, lastname: newname, email: newname + "@ucla.edu", password: newname, password_confirmation: newname, team_id: 1)
+  end
+  i = 1
+  while i < 100 do
     i += 1
     name = SecureRandom.alphanumeric
     Team.create(name: name, balance: rand(400...5000))
