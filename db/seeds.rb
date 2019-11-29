@@ -1,6 +1,6 @@
 require 'securerandom'
 # Check so that each newly spawned EB instance doesn't try to seed and already seeded database
-if Team.all.size == 0
+if Team.all.size != 0
   # puts "Hello, Ruby!";
   # Default team which esvery new user joins
   first_user = User.create(firstname: "Jack", lastname: "Zhang", email: "jz@ucla.edu", password: "qwerty", password_confirmation: "qwerty", team_id: 1)
@@ -32,21 +32,20 @@ if Team.all.size == 0
   five_suggestion3 = Suggestion.create(quantity: 500, team_id: 3, user_id: 3, ticker: 'UBER')
   five_suggestion4 = Suggestion.create(quantity: 500, team_id: 4, user_id: 4, ticker: 'UBER')
   five_suggestion5 = Suggestion.create(quantity: 500, team_id: 5, user_id: 5, ticker: 'UBER')
-  charset = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}
   i = 1
-  while i < 100 do
-    newname = SecureRandom.alphanumeric
+  500.times do
+    newname = SecureRandom.hex(7)
     first_user = User.create(firstname: newname, lastname: newname, email: newname + "@ucla.edu", password: newname, password_confirmation: newname, team_id: 1)
   end
   i = 1
-  while i < 100 do
+  200.times do
     i += 1
-    name = SecureRandom.alphanumeric
+    name = SecureRandom.hex(7)
     Team.create(name: name, balance: rand(400...5000))
     i2 = 1
-    while i2 < 10 do
-      name2 = SecureRandom.alphanumeric
-      Suggestion.create(quantity: rand(400...5000), team_id: i, user_id: 1, ticker: name2)
+    10.times do
+      name2 = SecureRandom.hex(7)
+      Suggestion.create(quantity: rand(400...5000), team_id: i+4, user_id: 1, ticker: name2)
       i2 += 1
     end
   end
