@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     def set_teams
       @team = Team.find(current_user.team_id)
       @teams = Team.order('balance + value DESC LIMIT 20')
-      #@teams = Team.all.sort_by{ |team| team.balance + team.value}.reverse
+      #@teams = Team.all.sort_by{ |team| team.balance + team.value}.reverse[1..19]
     end
 
     def check_user
