@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_045725) do
+ActiveRecord::Schema.define(version: 2019_11_30_040821) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_045725) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
-    t.index ["team_id"], name: "index_suggestions_on_team_id"
-    t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -67,8 +65,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_045725) do
     t.string "firstname"
     t.string "lastname"
     t.integer "team_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 

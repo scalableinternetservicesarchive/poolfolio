@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def show
     # "stocks" structure combines stock price from Stock and quantity from Holding
+
+    #OPTIMIZATION 1: Add Index to Holdings.
+
     @stocks = Array.new
     Holding.where(team_id: current_user.team_id).each do |holding|
       stock = Stock.find(holding.stock_id)
