@@ -82,21 +82,10 @@
                     <td><%= suggestion.ticker %></td>
                     <td><%= (quant).abs %></td>
                     <td>
-                      <% if current_user.voted_up_on? suggestion %>
-                        <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like disabled", method: :put do %>Like<% end %>
-                      <% else %>
-                        <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like", method: :put do %>Like<% end %>
-                      <% end %>
-
-                      <% if current_user.voted_down_on? suggestion %>
-                        <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike disabled", method: :put do %>Unlike<% end %>
-                      <% else %>
-                        <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>
-                      <% end %>
 
                     </td>
                     <td>
-                      <% if suggestion.weighted_score > @team.users.count / 2 %>
+                      <% if suggestion.weighted_score > @majority%>
                         <%= link_to 'Execute', execute_suggestion_path(suggestion), class: "btn btn-sm btn-execute" %>
                       <% else %>
                       <%= suggestion.weighted_score %>
