@@ -12,11 +12,12 @@
               <th>Portfolio Value</th>
             </tr>
           </thead>
-          
+
           <tbody class="team-body">
+            <% @currentTeam = Team.find(current_user.team_id) %>
             <% @teams.each do |team| %>
             <tr>
-              <% if team == Team.find(current_user.team_id) %>
+              <% if team == @currentTeam%>
                 <td class="team-row"><%= team.name %></td>
                 <td class="team-row"><%= team.value + team.balance %></td>
                 <td>
@@ -42,4 +43,3 @@
     </div>
   </div>
 </div>
-
