@@ -45,10 +45,12 @@
           </div>
 
               <% @teams.each do |team|%>
-                <div class="d-flex flex-row justify-content-between">
-                  <div class=""><%= link_to team_path(team.id), method: :get do %><%= team.name =%><% end %></div>
-                  <div class=""><%= number_to_currency(team.value + team.balance) %></div>
-                </div>
+                <% cache(team) do %>
+                  <div class="d-flex flex-row justify-content-between">
+                    <div class=""><%= link_to team_path(team.id), method: :get do %><%= team.name =%><% end %></div>
+                    <div class=""><%= number_to_currency(team.value + team.balance) %></div>
+                  </div>
+                <% end %>
               <% end %>
 
         </div>
@@ -69,40 +71,9 @@
                 <tbody class="suggestion-body">
 
                   <% @suggestions.order(:cached_votes_score => :desc, :created_at => :asc).each do |suggestion|%>
-                  <tr >
-                    <!--Absolute Value for quanity - if negative, display Sell, if positive, Buy  -->
-                    <% quant = suggestion.quantity %>
-                    <td>
-                      <% if (quant < 0) %>
-                        <div class="sell">Sell</div>
-                      <% else %>
-                        <div class="buy">Buy</div>
-                      <% end %>
-                    </td>
-                    <td><%= suggestion.ticker %></td>
-                    <td><%= (quant).abs %></td>
-                    <td>
-                      <% if current_user.voted_up_on? suggestion %>
-                        <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like disabled", method: :put do %>Like<% end %>
-                      <% else %>
-                        <%= link_to like_suggestion_path(suggestion), class: "btn btn-sm btn-like", method: :put do %>Like<% end %>
-                      <% end %>
-
-                      <% if current_user.voted_down_on? suggestion %>
-                        <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike disabled", method: :put do %>Unlike<% end %>
-                      <% else %>
-                        <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>
-                      <% end %>
-
-                    </td>
-                    <td>
-                      <% if suggestion.weighted_score > @team.users.count / 2 %>
-                        <%= link_to 'Execute', execute_suggestion_path(suggestion), class: "btn btn-sm btn-execute" %>
-                      <% else %>
-                      <%= suggestion.weighted_score %>
-                      <% end %>
-                    </td>
-                  </tr>
+                    <% cache(suggestion) do %>
+                      <%= render suggestion %>
+                    <% end %>
                   <% end %>
                 </tbody>
 
@@ -134,12 +105,14 @@
               </thead>
               <tbody>
                 <% @stocks.each do |stock|%>
-                <tr>
-                  <td><%= stock["ticker"] %></td>
-                  <td><%= stock["quantity"] %></td>
-                  <td><%= number_to_currency(stock["price"]) %></td>
-                  <td><%= number_to_currency(stock["total"]) %></td>
-                </tr>
+                  <% cache(stock) do %>
+                    <tr>
+                      <td><%= stock["ticker"] %></td>
+                      <td><%= stock["quantity"] %></td>
+                      <td><%= number_to_currency(stock["price"]) %></td>
+                      <td><%= number_to_currency(stock["total"]) %></td>
+                    </tr>
+                  <% end %>
                 <% end %>
               </tbody>
               </table>
