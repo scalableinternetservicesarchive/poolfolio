@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_045725) do
+ActiveRecord::Schema.define(version: 2019_11_30_183417) do
 
   create_table "holdings", force: :cascade do |t|
     t.integer "quantity"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_045725) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "stock_id"
     t.integer "team_id"
-    t.index ["team_id"], name: "index_holdings_on_team_id"
+    t.index ["team_id", "stock_id"], name: "index_holdings_on_team_id_and_stock_id"
   end
 
   create_table "stocks", force: :cascade do |t|

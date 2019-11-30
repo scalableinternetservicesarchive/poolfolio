@@ -44,8 +44,8 @@ class SuggestionsController < ApplicationController
         quantity = [-@suggestion.quantity, @holding.quantity].min
         income = price * quantity
         res = @holding.update(quantity: @holding.quantity - quantity)
-        if @holding.quantity == 0
-          @holding.destroy
+        if @holding.quantity <= 0
+          @holding.quantity = 0
         end
         @team.update(balance: @team.balance + income, value: @team.value - income)
         if res == false
