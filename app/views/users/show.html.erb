@@ -43,7 +43,7 @@
               <div class="pt-1"><u>Team Name</u></div>
               <div class="pt-1"><u>Value</u></div>
           </div>
-
+            <% cache("top_teams", :expires_in => 0.5.hour) do %>
               <% @teams.each do |team|%>
                 <% cache(team) do %>
                   <div class="d-flex flex-row justify-content-between">
@@ -52,6 +52,7 @@
                   </div>
                 <% end %>
               <% end %>
+            <% end %>
 
         </div>
         <div class="col mt-2">
