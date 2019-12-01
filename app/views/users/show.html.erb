@@ -43,7 +43,7 @@
               <div class="pt-1"><u>Team Name</u></div>
               <div class="pt-1"><u>Value</u></div>
           </div>
-            <% cache("top_teams", :expires_in => 0.5.hour) do %>
+            <% cache @teams do %>
               <% @teams.each do |team|%>
                 <% cache(team) do %>
                   <div class="d-flex flex-row justify-content-between">
@@ -70,7 +70,7 @@
                 </thead>
 
                 <tbody class="suggestion-body">
-
+                <% cache @suggestions do %>
                   <% @suggestions.order(:cached_votes_score => :desc, :created_at => :asc).each do |suggestion|%>
                   <% cache(suggestion) do %>
                   <tr >
@@ -109,6 +109,7 @@
                   </tr>
                   <% end %>
                   <% end %>
+                <% end %>
                 </tbody>
 
                 </table>
@@ -138,6 +139,7 @@
                 </tr>
               </thead>
               <tbody>
+              <% cache(@stocks) do %>
                 <% @stocks.each do |stock|%>
                   <% cache(stock) do %>
                     <tr>
@@ -148,6 +150,7 @@
                     </tr>
                   <% end %>
                 <% end %>
+              <% end %>
               </tbody>
               </table>
           </div>
