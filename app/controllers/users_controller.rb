@@ -15,9 +15,17 @@ class UsersController < ApplicationController
       })
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
-
+    
     # Optimization, all suggestions are loaded 8 at a time
     @suggestions = @team.suggestions.paginate(page: params[:page], :per_page => 8)
+    
+    if stale?(@stocks) || stale?(@suggestions)
+      respond_to do |format|
+        format.html 
+      end
+    end
+
+    
 
   end
 
