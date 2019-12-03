@@ -47,14 +47,14 @@ if Team.all.size == 0
     i += 1
   end
   # Stocks using Alpaca's Market API
-  res = RestClient.get("https://paper-api.alpaca.markets/v2/assets", :"APCA-API-KEY-ID" => "PKI9MD0KBM4B957XF9IJ", :"APCA-API-SECRET-KEY" => "DxnPxsIzEZDwFcgfnlHoSKhkKFsfEgsHFkggmcQx")
-  res = JSON.parse(res)
-  for stock in res do
-    if (stock["exchange"] == "NYSE" ||
-        stock["exchange"] == "AMEX" ||
-        stock["exchange"] == "NASDAQ") &&
-        stock["tradable"] == true
-      Stock.create(ticker: stock["symbol"], exchange: stock["exchange"])
-    end
-  end
+  #res = RestClient.get("https://paper-api.alpaca.markets/v2/assets", :"APCA-API-KEY-ID" => "PKI9MD0KBM4B957XF9IJ", :"APCA-API-SECRET-KEY" => "DxnPxsIzEZDwFcgfnlHoSKhkKFsfEgsHFkggmcQx")
+  #res = JSON.parse(res)
+  #for stock in res do
+  #  if (stock["exchange"] == "NYSE" ||
+  #      stock["exchange"] == "AMEX" ||
+  #      stock["exchange"] == "NASDAQ") &&
+  #      stock["tradable"] == true
+  #    Stock.create(ticker: stock["symbol"], exchange: stock["exchange"])
+  #  end
+  #end
 end
