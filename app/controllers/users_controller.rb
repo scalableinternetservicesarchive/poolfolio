@@ -16,8 +16,8 @@ class UsersController < ApplicationController
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
 
-    # Optimization, all suggestions are loaded 8 at a time
-    @suggestions = @team.suggestions.paginate(page: params[:page], :per_page => 8)
+    # Unoptimized
+    @suggestions = Suggestion.where(team_id: current_user.team_id)
 
   end
 
