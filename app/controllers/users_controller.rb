@@ -20,9 +20,7 @@ class UsersController < ApplicationController
     @suggestions = @team.suggestions.paginate(page: params[:page], :per_page => 8)
     
     # Optimization, cache the user count of the current team
-    Rails.cache.fetch("team_user_count", expires_in: 12.hours) do
-      @count = @team.users.count
-    end
+    @count = @team.user_count
   end
 
   def index
@@ -32,9 +30,7 @@ class UsersController < ApplicationController
   private
 
     def set_teams
-      Rails.cache.fetch("team", expires_in: 12.hours) do
-        @team = Team.find(current_user.team_id)
-      end
+      @team = Team.find(current_user.team_id)
       @teams = Team.all.sort_by{ |team| team.balance + team.value}.reverse[0...19]
     end
 
