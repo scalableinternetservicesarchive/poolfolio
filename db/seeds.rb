@@ -37,12 +37,13 @@ if Team.all.size == 0
     first_user = User.create(firstname: newname, lastname: newname, email: newname + "@ucla.edu", password: newname, password_confirmation: newname, team_id: 5)
   end
   i = 1
+  tickers = ["MSFT", "GOOG", "AAPL", "V", "COUP", "OKTA", "AMZN", "WORK", "NOW", "BRK.B"]
   200.times do
     name = SecureRandom.hex(7)
     Team.create(name: name, balance: rand(400...5000))
     10.times do
       name2 = SecureRandom.hex(12)
-      Suggestion.create(quantity: rand(400...5000), team_id: i+5, user_id: 1, ticker: name2)
+      Suggestion.create(quantity: rand(-500...500), team_id: i+5, user_id: 1, ticker: tickers.sample)
     end
     i += 1
   end

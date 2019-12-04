@@ -70,7 +70,7 @@ class SuggestionsController < ApplicationController
       if @holding != nil
         @holding.update(quantity: @holding.quantity + @suggestion.quantity)
       else
-        @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, quantity: @suggestion.quantity)
+        @holding = Holding.create(team_id: @team.id, stock_id: @stock.id, ticker: @stock.ticker, quantity: @suggestion.quantity, price: @stock.price, value: @stock.price * @suggestion.quantity)
       end
     end
 
