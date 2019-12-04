@@ -43,9 +43,9 @@
               <div class="pt-1"><u>Team Name</u></div>
               <div class="pt-1"><u>Value</u></div>
           </div>
-            <% cache("top_teams", :expires_in => 0.5.hour) do %>
+            <% cache @teams do %>
               <% @teams.each do |team|%>
-                <% cache(team) do %>
+                <% cache team do %>
                   <div class="d-flex flex-row justify-content-between">
                     <div class=""><%= link_to team_path(team.id), method: :get do %><%= team.name =%><% end %></div>
                     <div class=""><%= number_to_currency(team.value + team.balance) %></div>
@@ -70,9 +70,9 @@
                 </thead>
 
                 <tbody class="suggestion-body">
-
+                  <% cache @suggestions do %>
                   <% @suggestions.order(:cached_votes_score => :desc, :created_at => :asc).each do |suggestion|%>
-                  <% cache(suggestion) do %>
+                  <% cache suggestion do %>
                   <tr >
                     <!--Absolute Value for quanity - if negative, display Sell, if positive, Buy  -->
                     <% quant = suggestion.quantity %>
@@ -107,6 +107,7 @@
                       <% end %>
                     </td>
                   </tr>
+                  <% end %>
                   <% end %>
                   <% end %>
                 </tbody>
