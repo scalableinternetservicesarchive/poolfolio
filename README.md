@@ -30,7 +30,7 @@ Things you may want to cover:
 ### Deployment Instructions
 Access EC2 instance: 
 ```
-ssh -i poolfolio.pem poolfolio@ec2-52-35-41-146.us-west-2.compute.amazonaws.com
+sudo ssh -i poolfolio.pem poolfolio@ec2-34-209-211-32.us-west-2.compute.amazonaws.com 
 ```
 Deploy to Elastic Beanstalk once inside EC2 instance using alias: 
 ```
