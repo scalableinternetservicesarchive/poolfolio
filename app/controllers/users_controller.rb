@@ -4,12 +4,18 @@ class UsersController < ApplicationController
 
   def show
     # "stocks" structure combines stock price from Stock and quantity from Holding
-    @stocks = Array.new
     @stocks = Holding.where(team_id: current_user.team_id).order("value desc").paginate(page: params[:holding_page], :per_page => 20)
     @teams = Team.order("balance + value desc").paginate(page: params[:team_page], :per_page => 22)
 
     # Optimization, all suggestions are loaded 8 at a time
     @suggestions = @team.suggestions.paginate(page: params[:suggestion_page], :per_page => 8)
+
+    if stale?(@stocks) || stale?(@suggestions)
+      respond_to do |format|
+        format.html 
+      end
+    end
+
 
   end
 
