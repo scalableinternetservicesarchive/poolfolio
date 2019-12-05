@@ -9,11 +9,6 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @teams = Team.all.order("created_at DESC")
-    if stale?(@teams)
-      respond_to do |format|
-        format.html
-      end
-    end
   end
 
   def join
@@ -31,11 +26,6 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @users = User.where(team_id: @team.id)
-    if stale?(@users)
-      respond_to do |format|
-        format.html
-      end
-    end
   end
 
   # GET /teams/new

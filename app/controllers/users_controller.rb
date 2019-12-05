@@ -8,12 +8,6 @@ class UsersController < ApplicationController
     @teams = Team.order("balance + value desc").paginate(page: params[:team_page], :per_page => 22)
     @suggestions = @team.suggestions.paginate(page: params[:suggestion_page], :per_page => 8)
 
-    if stale?(@stocks) || stale?(@suggestions)
-      respond_to do |format|
-        format.html 
-      end
-    end
-
     Rails.cache.fetch("team_user_count", expires_in: 12.hours) do
       @count = @team.users.count
     end
