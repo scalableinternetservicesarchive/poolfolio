@@ -7,13 +7,15 @@ class UsersController < ApplicationController
     # "stocks" structure combines stock price from Stock and quantity from Holding
     @stocks = Array.new
     Holding.where(team_id: current_user.team_id).each do |holding|
-      stock = Stock.find(holding.stock_id)
-      @stocks.push({
-        "quantity" => holding.quantity,
-        "ticker" => stock.ticker,
-        "price" => stock.price.to_i,
-        "total" => stock.price.to_i * holding.quantity
-      })
+      if holding.quantity > 0
+        stock = Stock.find(holding.stock_id)
+        @stocks.push({
+          "quantity" => holding.quantity,
+          "ticker" => stock.ticker,
+          "price" => stock.price.to_i,
+          "total" => stock.price.to_i * holding.quantity
+        })
+      end
     end
     @stocks = @stocks.sort_by{ |k| k["total"] }.reverse
 
