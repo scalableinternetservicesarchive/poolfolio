@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :check_user, :set_teams
 
   def show
+    @majority = @team.users.count / 2
     # "stocks" structure combines stock price from Stock and quantity from Holding
     @stocks = Holding.where(team_id: current_user.team_id).order("value desc").paginate(page: params[:holding_page], :per_page => 20)
     @teams = Team.order("balance + value desc").paginate(page: params[:team_page], :per_page => 22)
