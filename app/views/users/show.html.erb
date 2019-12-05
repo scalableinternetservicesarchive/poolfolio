@@ -91,12 +91,11 @@
                       <% if current_user.voted_down_on? suggestion %>
                         <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike disabled", method: :put do %>Unlike<% end %>
                       <% else %>
-                        <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>
+                        <%= link_to unlike_suggestion_path(suggestion), class: "btn btn-sm btn-unlike", method: :put do %>Unlike<% end %>	
                       <% end %>
-
                     </td>
                     <td>
-                      <% if suggestion.weighted_score > @team.users.count / 2 %>
+                      <% if suggestion.weighted_score > @majority%>
                         <%= link_to 'Execute', execute_suggestion_path(suggestion), class: "btn btn-sm btn-execute" %>
                       <% else %>
                       <%= suggestion.weighted_score %>

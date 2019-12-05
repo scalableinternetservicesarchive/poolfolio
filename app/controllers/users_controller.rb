@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :check_user, :set_teams
 
   def show
+    @majority = @team.users.count / 2
     # "stocks" structure combines stock price from Stock and quantity from Holding
     @stocks = Array.new
     Holding.where(team_id: current_user.team_id).each do |holding|
