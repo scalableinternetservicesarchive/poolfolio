@@ -14,7 +14,9 @@
           </thead>
           
           <tbody class="team-body">
+          <% cache @teams do %>
             <% @teams.each do |team| %>
+            <% cache(team) do %>
             <tr>
               <% if team == Team.find(current_user.team_id) %>
                 <td class="team-row"><%= team.name %></td>
@@ -32,7 +34,9 @@
                 </td>
               <% end %>
             </tr>
+            <% end %> 
             <% end %>
+          <% end %>
           </tbody>
         </table>
         <div style="position:absolute; bottom:14px; right:10px">

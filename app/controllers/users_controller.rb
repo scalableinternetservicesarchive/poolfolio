@@ -27,7 +27,6 @@ class UsersController < ApplicationController
 
     def set_teams
       @team = Team.find(current_user.team_id)
-      # @teams = Team.all.sort_by{ |team| team.balance + team.value}.reverse[0...19]
     end
 
     def check_user
